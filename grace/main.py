@@ -19,7 +19,9 @@ MOSTROS = "Introducao_a_Computacao/Untitled_20180828_105627.jpg"
 
 def Tesouro(inca):
     templotras3= Cena(img= TEMPLOTRAS3)
-    artefatos2= Elemento(img= ARTEFATOS2, tit= "tesouros", style 
+    artefatos2= Elemento(img= ARTEFATOS2, tit= "tesouros", style=dict(left = 100, top = 100, width = 100, height = "100px"))
+    artefatos2.entra(templotras3)
+    templotras3.vai
 
 
 
