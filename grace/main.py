@@ -7,7 +7,7 @@ PEDRAS2 = "Introducao_a_Computacao/Untitled_20180828_105412.jpg"
 PEDRAS3 = "Introducao_a_Computacao/Untitled_20180828_105419.jpg"
 PEDRAS4 = "Introducao_a_Computacao/Untitled_20180828_105624.jpg"
 TEMPLOTRAS1 = "Introducao_a_Computacao/Untitled_20180828_110147.jpg"
-TEMPLOTRAS2 = "https://activufrj.nce.ufrj.br/studio/info/Introducao_a_Computacao/Untitled_20180828_110148.jpg"
+TEMPLOTRAS2 = "Introducao_a_Computacao/Untitled_20180828_110148.jpg"
 TEMPLOTRAS3 = "https://activufrj.nce.ufrj.br/studio/info/Introducao_a_Computacao/Untitled_20180828_110145.jpg"
 CARTASENTRAESAI = "https://activufrj.nce.ufrj.br/studio/info/Introducao_a_Computacao/Untitled_20180828_105727.jpg"
 	
@@ -24,4 +24,4 @@ CARTASENTRAESAI = "https://activufrj.nce.ufrj.br/studio/info/Introducao_a_Comput
 10	"Introducao_a_Computacao/Untitled_20180828_105833-2.jpg"
 11	"Introducao_a_Computacao/Untitled_20180828_110145.jpg"
 12	
-13	"Introducao_a_Computacao/Untitled_20180828_110148.jpg"
+13	
