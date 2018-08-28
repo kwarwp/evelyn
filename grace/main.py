@@ -17,6 +17,8 @@ ARTEFATOS2 = "Introducao_a_Computacao/Untitled_20180828_105528.jpg"
 MOSTROS1 = "Introducao_a_Computacao/Untitled_20180828_105623.jpg"
 MOSTROS = "Introducao_a_Computacao/Untitled_20180828_105627.jpg"
 
+def 
+
 
 
 
