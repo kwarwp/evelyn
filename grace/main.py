@@ -17,7 +17,7 @@ ARTEFATOS2 = "Introducao_a_Computacao/Untitled_20180828_105528.jpg"
 MOSTROS1 = "Introducao_a_Computacao/Untitled_20180828_105623.jpg"
 MOSTROS = "Introducao_a_Computacao/Untitled_20180828_105627.jpg"
 
-def Tesouro(inca):
+def Tesouro():
     templotras3= Cena(img= TEMPLOTRAS3)
     artefatos2= Elemento(img= ARTEFATOS2, tit= "tesouros", style=dict(left = 100, top = 100, width = 100, height = "100px"))
     artefatos2.entra(templotras3)
