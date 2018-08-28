@@ -1,5 +1,5 @@
 # evelyn.grace.main.py
-from spy.vitollino.main import Cena, Elemento
+from spy.vitollino.main import Cena, Elemento, STYLE
 from _spy.vitollino.main import INVENTARIO as inv
  
 PEDRAS1 = "Introducao_a_Computacao/Untitled_20180828_102220.jpg"
@@ -19,6 +19,7 @@ MOSTROS = "Introducao_a_Computacao/Untitled_20180828_105627.jpg"
 
 def Tesouro(inca):
     templotras3= Cena(img= TEMPLOTRAS3)
+    artefatos2= Elemento(img= ARTEFATOS2, tit= "tesouros", style 
 
 
 
