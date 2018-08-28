@@ -1,7 +1,7 @@
 # evelyn.grace.main.py
 from _spy.vitollino.main import Cena, Elemento, STYLE
 from _spy.vitollino.main import INVENTARIO as inv
- 
+ACTIVE = "http://activeufrj.nce.ufrj.br" 
 PEDRAS1 = "Introducao_a_Computacao/Untitled_20180828_102220.jpg"
 PEDRAS2 = "Introducao_a_Computacao/Untitled_20180828_105412.jpg"
 PEDRAS3 = "Introducao_a_Computacao/Untitled_20180828_105419.jpg"
