@@ -20,17 +20,3 @@ MOSTROS = "Introducao_a_Computacao/Untitled_20180828_105627.jpg"
 
 
 
-
-1	
-2	
-3	
-4	"
-5	
-6	
-7	
-8	
-9	"Introducao_a_Computacao/Untitled_20180828_105833-0.jpg"
-10	
-11	
-12	
-13	
