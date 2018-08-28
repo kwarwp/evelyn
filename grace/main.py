@@ -9,3 +9,4 @@ PEDRAS4 = "https://activufrj.nce.ufrj.br/studio/info/Introducao_a_Computacao/Unt
 TEMPLOTRAS1 = "https://activufrj.nce.ufrj.br/studio/info/Introducao_a_Computacao/Untitled_20180828_110147.jpg"
 TEMPLOTRAS2 = "https://activufrj.nce.ufrj.br/studio/info/Introducao_a_Computacao/Untitled_20180828_110148.jpg"
 TEMPLOTRAS3 = "https://activufrj.nce.ufrj.br/studio/info/Introducao_a_Computacao/Untitled_20180828_110145.jpg"
+CARTASENTRAESAI = "https://activufrj.nce.ufrj.br/studio/info/Introducao_a_Computacao/Untitled_20180828_105727.jpg"
