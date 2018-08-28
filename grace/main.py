@@ -1,5 +1,5 @@
 # evelyn.grace.main.py
-from spy.vitollino.main import Cena, Elemento, STYLE
+from _spy.vitollino.main import Cena, Elemento, STYLE
 from _spy.vitollino.main import INVENTARIO as inv
  
 PEDRAS1 = "Introducao_a_Computacao/Untitled_20180828_102220.jpg"
