@@ -40,3 +40,10 @@ TypeError: Tesouro() missing 1 positional argument: inca
     templotras3= Cena(img= TEMPLOTRAS3)
 TypeError: 'module' object is not callable
 '''},
+{'date': 'Tue Aug 28 2018 18:35:05.611 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 26
+  def __init__(self):
+  ^
+IndentationError: expected an indented block
+'''},
