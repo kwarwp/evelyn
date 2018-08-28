@@ -1,7 +1,8 @@
 # evelyn.grace.main.py
 from _spy.vitollino.main import Cena, Elemento, STYLE
 from _spy.vitollino.main import INVENTARIO as inv
-ACTIVE = "http://activufrj.nce.ufrj.br/studio/" 
+ACTIVE = "http://activufrj.nce.ufrj.br/studio/"
+POS = "?disp=inline&size=G"
 PEDRAS1 = "Introducao_a_Computacao/Untitled_20180828_102220.jpg"
 PEDRAS2 = "Introducao_a_Computacao/Untitled_20180828_105412.jpg"
 PEDRAS3 = "Introducao_a_Computacao/Untitled_20180828_105419.jpg"
@@ -18,8 +19,8 @@ MOSTROS1 = "Introducao_a_Computacao/Untitled_20180828_105623.jpg"
 MOSTROS = "Introducao_a_Computacao/Untitled_20180828_105627.jpg"
 
 def Tesouro():
-    templotras3= Cena(img= ACTIVE+TEMPLOTRAS3)
-    artefatos2= Elemento(img= ACTIVE+ARTEFATOS2, tit= "tesouros", style=dict(left = 100, top = 100, width = 100, height = "100px"))
+    templotras3= Cena(img= ACTIVE+TEMPLOTRAS3+POS)
+    artefatos2= Elemento(img= ACTIVE+ARTEFATOS2+POS, tit= "tesouros", style=dict(left = 100, top = 100, width = 100, height = "100px"))
     artefatos2.entra(templotras3)
     templotras3.vai
     
