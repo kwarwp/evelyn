@@ -10,7 +10,11 @@ TEMPLOTRAS1 = "Introducao_a_Computacao/Untitled_20180828_110147.jpg"
 TEMPLOTRAS2 = "Introducao_a_Computacao/Untitled_20180828_110148.jpg"
 TEMPLOTRAS3 = "Introducao_a_Computacao/Untitled_20180828_110145.jpg"
 CARTASENTRAESAI = "Introducao_a_Computacao/Untitled_20180828_105727.jpg"
-0	
+
+
+
+
+
 1	
 2	
 3	"Introducao_a_Computacao/Untitled_20180828_105528.jpg"
