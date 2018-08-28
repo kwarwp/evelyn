@@ -12,6 +12,10 @@ TEMPLOTRAS3 = "Introducao_a_Computacao/Untitled_20180828_110145.jpg"
 CARTASENTRAESAI = "Introducao_a_Computacao/Untitled_20180828_105727.jpg"
 CARTASENTRAESAITRAS = "Introducao_a_Computacao/Untitled_20180828_105833-0.jpg"
 CARTASTRAS = "Introducao_a_Computacao/Untitled_20180828_105833-2.jpg"
+ARTEFATOS1 = "Introducao_a_Computacao/Untitled_20180828_105529.jpg
+ARTEFATOS = "Introducao_a_Computacao/Untitled_20180828_105528.jpg"
+MOSTROS1 = "Introducao_a_Computacao/Untitled_20180828_105623.jpg"
+MOSTROS = "Introducao_a_Computacao/Untitled_20180828_105627.jpg"
 
 
 
@@ -19,11 +23,11 @@ CARTASTRAS = "Introducao_a_Computacao/Untitled_20180828_105833-2.jpg"
 
 1	
 2	
-3	"Introducao_a_Computacao/Untitled_20180828_105528.jpg"
-4	"Introducao_a_Computacao/Untitled_20180828_105529.jpg"
-5	"Introducao_a_Computacao/Untitled_20180828_105623.jpg"
+3	
+4	"
+5	
 6	
-7	"Introducao_a_Computacao/Untitled_20180828_105627.jpg"
+7	
 8	
 9	"Introducao_a_Computacao/Untitled_20180828_105833-0.jpg"
 10	
