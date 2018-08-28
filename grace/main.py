@@ -22,6 +22,10 @@ def Tesouro(inca):
     artefatos2= Elemento(img= ARTEFATOS2, tit= "tesouros", style=dict(left = 100, top = 100, width = 100, height = "100px"))
     artefatos2.entra(templotras3)
     templotras3.vai
+    
+    
+    templotras3.vai()
+Tesouro ()
 
 
 
