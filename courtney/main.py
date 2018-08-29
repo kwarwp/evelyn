@@ -24,7 +24,7 @@ def criarcenas():
     alice = Elemento(img=ALICE, tit="Alice", style=dict(right="100px", top="100px", widht="100px", height="100px"))
     tarzan.entra(mesa)
     alice.entra(mesa)
-    elice = Texto (mesa, "Você veio do pântano?")
+    ealice = Texto (mesa, "Você veio do pântano?")
     etarzan = Texto (mesa, "Não, eu vim da selva. Me perdi tentando encontrar minha cinderela")
     alice.vai = ealice.vai
     tarzan.vai = etarzan.vai
