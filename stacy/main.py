@@ -13,6 +13,10 @@ FIM = "http://3.bp.blogspot.com/-zA1VKzme-9g/UZU6AxIeWQI/AAAAAAAAM_8/t7hzuQQkVhs
 def criarcenas():
     floresta = Cena(img=FLORESTA)
     castelo = Cena(img=CASTELO)
+    ecastelo = Cena(img=CASTELO)
+    acastelo = Cena(img=CASTELO)
+    bcastelo = Cena(img=CASTELO)
+    fim = Cena(img=FIM)    
     floresta.direita = castelo
     
     alice = Elemento(img=ALICE, tit="Alice", style=dict(left="100px",top="160",width="60px",heigth="200px"))
@@ -26,22 +30,22 @@ def criarcenas():
     alice.vai = ealice.vai    
     
     piano = Elemento(img=PIANO, tit="Alice", style=dict(left="100px",top="160",width="60px",heigth="200px"))
-    piano.entra(castelo)
-    epiano = Texto(castelo, "O piano é mágico e toca uma linda valsa!")
+    piano.entra(ecastelo)
+    epiano = Texto(ecastelo, "O piano é mágico e toca uma linda valsa!")
     piano.vai = epiano.vai
     
     tarzan = Elemento(img=TARZAN, tit="Tarzan", style=dict(left="100px",top="160",width="60px",heigth="200px"))
-    tarzan.entra(castelo)
-    etarzan = Texto(castelo, "Surge um lindo príncipe que tira Alice para dançar...")
+    tarzan.entra(acastelo)
+    etarzan = Texto(acastelo, "Surge um lindo príncipe que tira Alice para dançar...")
     tarzan.vai = etarzan.vai
     
     beijo = Elemento(img=BEIJO, tit="Beijo", style=dict(left="100px",top="160",width="60px",heigth="200px"))
-    beijo.entra(castelo)
-    ebeijo = Texto(castelo, "Os dois se apaixonam e...")
+    beijo.entra(bcastelo)
+    ebeijo = Texto(bcastelo, "Os dois se apaixonam e...")
     beijo.vai = ebeijo.vai
     
     fim = Elemento(img=FIM, tit="Fim", style=dict(left="100px",top="160",width="60px",heigth="200px"))
-    fim.entra(castelo)
+    fim.entra(FIM)
     
     floresta.vai()
 criarcenas()
