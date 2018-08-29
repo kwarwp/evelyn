@@ -36,7 +36,7 @@ def criarcenas():
     ealice = Texto(castelo, "Oh, que lindo! Quem será que mora aqui?")
     alice.vai = ealice.vai    
     
-    piano = Elemento(img=PIANO, tit="Alice", style=dict(left="100px",top="160",width="60px",heigth="200px"))
+    piano = Elemento(img=PIANO, tit="Alice", style=dict(left="100px",top="160",width="190px",heigth="200px"))
     piano.entra(ecastelo)
     epiano = Texto(ecastelo, "O piano é mágico e toca uma linda valsa!")
     piano.vai = epiano.vai
@@ -46,7 +46,7 @@ def criarcenas():
     etarzan = Texto(acastelo, "Surge um lindo príncipe que tira Alice para dançar...")
     tarzan.vai = etarzan.vai
     
-    beijo = Elemento(img=BEIJO, tit="Beijo", style=dict(left="100px",top="160",width="60px",heigth="200px"))
+    beijo = Elemento(img=BEIJO, tit="Beijo", style=dict(left="100px",top="160",width="190px",heigth="200px"))
     beijo.entra(bcastelo)
     ebeijo = Texto(bcastelo, "Os dois se apaixonam e...")
     beijo.vai = ebeijo.vai
