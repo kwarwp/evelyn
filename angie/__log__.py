@@ -13,3 +13,10 @@ SyntaxError: Unbalanced bracket (
   ^
 IndentationError: unexpected indent
 '''},
+{'date': 'Wed Aug 29 2018 11:12:56.75 GMt-0300 (Horário Padrão de Brasília) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 20
+  barbie = Elemento(img=BARBIE, tit="BARBIE", style=dict(left="100px", top="160px", width="60px", height="200 
+                                                                                                              ^
+SyntaxError: EOL while scanning string literal
+'''},
