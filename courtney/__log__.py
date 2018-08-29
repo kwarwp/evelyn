@@ -132,3 +132,10 @@ NameError: name 'texto' is not defined
                                                                                   ^
 SyntaxError: invalid syntax
 '''},
+{'date': 'Wed Aug 29 2018 11:21:14.727 GMt-0300 (Horário Padrão de Brasília) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 18
+  tarzan = Elemento(img=TARZAN_NA_SELVA, tit="Tarzan", style=dict(left="90XPtop="150px", width="150px", heigth="180px"))
+                                                                                  ^
+SyntaxError: invalid syntax
+'''},
