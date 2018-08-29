@@ -221,3 +221,10 @@ SyntaxError: EOL while scanning string literal
     barbie = Elemento(img=barbie, tit="barbie", style=dict(left="100px", top="160px", width="60px", height="200px" ))
 UnboundLocalError: local variable 'barbie' referenced before assignment
 '''},
+{'date': 'Wed Aug 29 2018 11:36:53.650 GMt-0300 (Horário Padrão de Brasília) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 21
+  barbie = Elemento(img=BARBIE, tit="Barbie", style=dict(left="150px", top="300px", width="90px", height="300px")
+                                                                                                                       ^
+SyntaxError: invalid syntax
+'''},
