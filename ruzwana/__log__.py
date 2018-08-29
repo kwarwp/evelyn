@@ -69,3 +69,10 @@ NameError: name 'floresta' is not defined
                ^
 SyntaxError: invalid syntax
 '''},
+{'date': 'Wed Aug 29 2018 11:18:09.740 GMt-0300 (Horário Padrão de Brasília) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 36
+  
+  ^
+IndentationError: expected an indented block
+'''},
