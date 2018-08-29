@@ -18,7 +18,7 @@ def criarcenas():
     ealice = Texto (floresta, "Que floresta linda!")
     alice.vai = ealice.vai
 
-    barbie = Elemento(img=BARBIE, tit="Barbie", style=dict(left="100px", top="110px", width="80px", height="190px"))
+    barbie = Elemento(img=BARBIE, tit="Barbie", style=dict(left="150px", top="100px", width="80px", height="190px"))
     barbie.entra(castelo)
     ebarbie= Texto (castelo, "Onde está o Ken?")
     barbie.vai = ebarbie.vai
