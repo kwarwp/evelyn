@@ -139,3 +139,10 @@ NameError: name 'DICT' is not defined
   ^
 IndentationError: unexpected indent
 '''},
+{'date': 'Wed Aug 29 2018 11:24:13.602 GMt-0300 (Horário Padrão de Brasília) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 28
+  cinderela = Elemento(img=CINDERELA, tit="Cinderela", style=dict(left="400px", top= "325px", width= "300px", height="300px"))
+  ^
+IndentationError: unexpected indent
+'''},
