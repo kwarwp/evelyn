@@ -13,7 +13,7 @@ def criarcenas():
     central = Cena(img=CENTRAL)
     floresta.direita = CENTRAL
     
-    barbie = Elemento(img=BARBIE, tit="BARBIE", style=dict(left="100px", top="160px", width="60px", height="200 
+    barbie = Elemento(img=barbie, tit="barbie", style=dict(left="100px", top="160px", width="60px", height="200 
     barbie.entra(floresta)
     ebarbie = Texto (floresta, "Que floresta assustadora minha gente")
     barbie.vai = ebarbie.vai
