@@ -2,32 +2,54 @@
 from _spy.vitollino.main import Cena, Texto, Elemento
 from _spy.vitollino.main import INVENTARIO as inv
 
-ALICE = "http://images6.fanpop.com/image/photos/40400000/Alice-In-Wonderland-Png-rainbow-unicorn-40444811-307-500.png"
-BARBIE = "https://images-na.ssl-images-amazon.com/images/I/91tfeZq8p6L._AC_UL320_SR222,320_.jpg"
-FLORESTA = "http://4.bp.blogspot.com/-a8jf22vjtr8/TkPPLwQvpMI/AAAAAAAAAaY/W71RJTciQ00/s1600/floresta_fundo.jpg0"
-CASTELO = "https://img.elo7.com.br/product/zoom/1E5C290/painel-de-festa-castelo-encantado-rosas-200x150-cm-khameo-decoracoes.jpg"
-CENTRAL = "http://1.bp.blogspot.com/-rv7cx92E9fA/UbXRW7alqrI/AAAAAAAAAjY/uWd4UJfWIvw/s640/3.jpg"
-
+BARBIE = "https://rihappy.vteximg.com.br/arquivos/ids/313399-400-400/DHM41-boneca-barbie-bailarina-loira-mattel-detalhe-1.jpg?v=636064205433430000"
+FLORESTA = "http://www.litury.com/wp-content/uploads/2017/12/sombre-fond-d-ecran-hd.jpg"
+TARZAN = "https://vignette.wikia.nocookie.net/vsdebating/images/6/68/Tarzan.png/revision/latest/scale-to-width-down/400?cb=20170707201517"
+HOMEM_ARANHA = "https://www.impaktovisual.com.br/3383-large_default/display-homem-aranha.jpg"
+CIDADE = "https://st2.depositphotos.com/4829791/7830/i/950/depositphotos_78304622-stock-photo-the-central-park.jpg"
+CINDERELA = "https://1.bp.blogspot.com/-V2tLZSbQiXk/WD8fBBsCwDI/AAAAAAAACAo/ik35d327hAAa6YfTwuN-tD2RozNXOgzpwCLcB/s320/23.png"
+ALICE = "https://www.disneyclips.com/imagesnewb/images/alice3.png"
+CASTELO = "https://img.elo7.com.br/product/main/1AD83BA/painel-castelo-com-flores-x2-8m-painel-3d.jpg"
+YODA = "https://2.bp.blogspot.com/-V8V5RPZUD1M/V1LnlY7xeOI/AAAAAAAAEu4/lKAEq2C0z5Y1NUmrGvSdspKHiz6RiM9gACLcB/s640/Yodauur.png"
 def criarcenas():
-    floresta = Cena(img=FLORESTA) 
-    central = Cena(img=CENTRAL)
-    floresta.direita = CENTRAL
+    floresta = Cena(img=FLORESTA)
+    cidade = Cena(img=CIDADE)
+    floresta.direita = cidade
     
-    barbie = Elemento(img=barbie, tit="barbie", style=dict(left="100px", top="160px", width="60px", height="200 
+    
+    barbie = Elemento(img=BARBIE,tit="Barbie", style=dict(left="100px", top="160px", width="60px", height="200px"))
     barbie.entra(floresta)
-    ebarbie = Texto (floresta, "Que floresta assustadora minha gente")
+    ebarbie = Texto (floresta, "Que floresta feia")
     barbie.vai = ebarbie.vai
     
     castelo = Cena(img=CASTELO)
-    central.direita = castelo
+    cidade.direita = castelo
     
-    Alice = Elemento(img=Alice, tit="BARBIE", style=dict(left="100px", top="160px", width="60px", height="200 
+    tarzan = Elemento(img=TARZAN,tit="Tarzan", style=dict(left="100px", top="160px", width="60px", height="200px"))
+    tarzan.entra(floresta)
+    etarzan = Texto (floresta, "Olá!!!!")
+    tarzan.vai = etarzan.vai
+    
+    homem_aranha = Elemento(img=HOMEM_ARANHA,tit="homem_aranha", style=dict(left="100px", top="160px", width="60px", height="200px"))
+    homem_aranha.entra(cidade)
+    ehomem_aranha = Texto (cidade, "o que que ta acontecendo aqui bb?")
+    homem_aranha.vai = ehomem_aranha.vai
+    
+    cinderela = Elemento(img=CINDERELA,tit="cinderela", style=dict(left="100px", top="160px", width="60px", height="200px"))
+    cinderela.entra(cidade)
+    ecinderela = Texto (cidade, "A BARBIE SO FAZ BESTEIRINHAAAAA SOS")
+    cinderela.vai = ecinderela.vai
+    
+    alice = Elemento(img=ALICE,tit="Alice", style=dict(left="100px", top="160px", width="60px", height="200px"))
     alice.entra(castelo)
-    ealice = Texto (castelo, "o que houve querida?")
+    ealice = Texto (castelo, "Vou ter que interromper meu momento de descanso, triste")
     alice.vai = ealice.vai
     
+    yoda = Elemento(img=YODA,tit="Yoda", style=dict(left="100px", top="160px", width="60px", height="200px"))
+    yoda.entra(castelo)
+    eyoda = Texto (castelo, "SEMPRE SOBRA PARA MIM!!!!")
+    yoda.vai = eyoda.vai
     
+
     floresta.vai()
 criarcenas()
-    
-    
