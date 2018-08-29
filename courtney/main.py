@@ -20,5 +20,14 @@ def criarcenas():
     etarzan = Texto (selva, "Tarzan, que foi criado na selva, quando chega na idade adulta, por conhecer a selva muito bem e se achar o rei dela se perde na floresta.")
     tarzan.vai = etarzan.vai
     
-    selva.vai()
-criarcenas()
+    tarzan = Elemento(img=TARZAN_EM_PE, tit="Tarzan", style=dict(left="100px", top="100px", width="100px", heighth="100px"))
+    alice = Elemento(img=ALICE, tit="Alice", style=dict(right="100px", top="100px", widht="100px", height="100px"))
+    tarzan.entra(mesa)
+    alice.entra(mesa)
+    elice = Texto (mesa, "Você veio do pântano?")
+    etarzan = Texto (mesa, "Não, eu vim da selva. Me perdi tentando encontrar minha cinderela")
+    alice.vai = ealice.vai
+    tarzan.vai = etarzan.vai
+    
+    mesa.vai()
+criarcenas()    
