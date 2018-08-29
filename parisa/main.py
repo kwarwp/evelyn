@@ -16,12 +16,14 @@ def criarcenas():
     fim = Cena (img=FIM)
     laboratorio.direita = laboratorioa
     
-    cinderela = Elemento (img=CINDERELA, tit="Cinderela", style=dict(left="100px", top="100px", width="60px", height="200px"))
-    cinderela.entra(laboratorio)
+    cinderela1 = Elemento (img=CINDERELA, tit="Cinderela", style=dict(left="100px", top="100px", width="60px", height="200px"))
+    cinderela2 = Elemento (img=CINDERELA, tit="Cinderela", style=dict(left="100px", top="100px", width="60px", height="200px"))
+    cinderela3 = Elemento (img=CINDERELA, tit="Cinderela", style=dict(left="100px", top="100px", width="60px", height="200px"))
+    cinderela1.entra(laboratorio)
     
-    cinderela.entra(laboratorioa)
-    homemaranha = Elemento (img=HOMEMARANHA, tit="homem aranha", style=dict(left="60px", top="160px", width="60px", height="200px"))
-    "homemaranha.entra(laboratorioa)"
+    cinderela2.entra(laboratorioa)
+    homemaranha = Elemento (img=HOMEMARANHA, tit="homem aranha", style=dict(left="30px", top="100px", width="60px", height="200px"))
+    homemaranha.entra(laboratorioa)
     ehomemaranha = Texto (laboratorioa, "Por favor, doutora, preciso da sua ajuda, é urgente. Sofri uma mutação, e os meus poderes estão se voltando contra mim, preciso de um antidoto")
     laboratorio.vai()
     
