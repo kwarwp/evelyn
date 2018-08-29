@@ -62,3 +62,10 @@ SyntaxError: EOL while scanning string literal
     floresta.vai()
 NameError: name 'floresta' is not defined
 '''},
+{'date': 'Wed Aug 29 2018 11:17:41.528 GMt-0300 (Horário Padrão de Brasília) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 34
+  criarcenas():
+               ^
+SyntaxError: invalid syntax
+'''},
