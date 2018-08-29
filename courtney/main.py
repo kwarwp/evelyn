@@ -29,5 +29,5 @@ def criarcenas():
     alice.vai = ealice.vai
     tarzan.vai = etarzan.vai
     
-    mesa.vai()
+    selva.vai()
 criarcenas()    
