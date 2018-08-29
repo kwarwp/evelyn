@@ -10,4 +10,7 @@ CASTELO ="https://www.google.com.br/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&c
 def criarcenas():
     floresta = Cena(img=FLORESTA)
     castelo = Cena(img=CASTELO)
+    floresta.direita = castelo
+    
+    alice = Elemento(img=ALICE, tit="Alice",
     
