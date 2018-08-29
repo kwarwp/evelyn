@@ -18,6 +18,7 @@ def criarcenas():
     bcastelo = Cena(img=CASTELO)
     fim = Cena(img=FIM)    
     floresta.direita = castelo
+    castelo.direita = ecastelo
     
     alice = Elemento(img=ALICE, tit="Alice", style=dict(left="100px",top="160",width="60px",heigth="200px"))
     alice.entra(floresta)
