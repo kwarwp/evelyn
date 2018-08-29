@@ -189,3 +189,10 @@ NameError: name 'ealice' is not defined
     selva.mesa.vai()
 AttributeError: 'Cena' object has no attribute 'mesa'
 '''},
+{'date': 'Wed Aug 29 2018 11:50:20.668 GMt-0300 (Horário Padrão de Brasília) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 26
+  tarzan = Elemento(img=TARZAN_EM_PE, tit="Tarzan", style=dict(right="50px", top="50px", width="50px", heighth="50px"))
+  ^
+IndentationError: unexpected indent
+'''},
