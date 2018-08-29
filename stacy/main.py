@@ -2,13 +2,13 @@
 from _spy.vitollino.main import Cena, Texto, Elemento
 from _spy.vitollino.main import INVENTARIO as inv
 
-ALICE ="https://www.google.com.br/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjllMvasZLdAhWBxpAKHYALBP4QjRx6BAgBEAU&url=http%3A%2F%2Ftatycasarino.blogspot.com%2F2016%2F06%2F&psig=AOvVaw39ug6JEo1KVFHlwO6ANPFt&ust=1535636245345380"
-TARZAN ="https://www.google.com.br/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiL6qncppLdAhXCH5AKHZAyBUMQjRx6BAgBEAU&url=http%3A%2F%2Fhero.wikia.com%2Fwiki%2FFile%3ATarzan_Character.png&psig=AOvVaw2Frm4u_vk1-RCkiipJI9_5&ust=1535633480343303"
-FLORESTA ="https://www.google.com.br/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwiCzvyAq5LdAhXBFJAKHeuDBh8QjRx6BAgBEAU&url=https%3A%2F%2Falgarve-saibamais.blogspot.com%2F2016%2F03%2Fcomo-o-vento-na-floresta-poema-de.html&psig=AOvVaw392PmZLmsaLorhggTmv0pB&ust=1535634513603880"
-CASTELO ="https://www.google.com.br/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjdwPnPq5LdAhVGmJAKHUF6BQ0QjRx6BAgBEAU&url=http%3A%2F%2Fwww.fazarte.com.br%2Fhome%2Fproduto%2F60-Castelo-Da-Floresta.html&psig=AOvVaw1JIb2JL8P5HQ8KN0n-ZF1h&ust=1535634776117423"
-PIANO ="https://www.google.com.br/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwi2sMu_sJLdAhVEFJAKHUOmDeoQjRx6BAgBEAU&url=http%3A%2F%2Fescolademusicalumiere.blogspot.com%2Fp%2Fcursos.html&psig=AOvVaw0MVfMyD7JnHHYzMU9nzCv-&ust=1535636086717191"
-BEIJO ="https://www.google.com.br/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwj75eOfsZLdAhUIipAKHVb4AjkQjRx6BAgBEAU&url=http%3A%2F%2Farimaamtricaapoesia.blogspot.com%2F&psig=AOvVaw0y0toAjNn_zRqdMviDkuyV&ust=1535636286353318"
-FIM = "https://www.google.com.br/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwivw4acuJLdAhUFjpAKHUB3DesQjRx6BAgBEAU&url=http%3A%2F%2Fmagnitudesdomundo.blogspot.com%2F2013%2F06%2Fdia-dos-namorados-12-de-junho.html&psig=AOvVaw04zkigDpwUyOfML9dxkeyn&ust=1535638097834402"
+ALICE ="http://vignette2.wikia.nocookie.net/disney/images/c/c8/Jane_clipart.png/revision/latest?cb=20140601220324"
+TARZAN ="https://vignette.wikia.nocookie.net/p__/images/e/e2/Tarzan_Character.png/revision/latest?cb=20160309034227&path-prefix=protagonist"
+FLORESTA ="https://4.bp.blogspot.com/-DUzzlN6dknE/Vi5_j9WAaFI/AAAAAAABPtA/5rgbiLpv2ac/s1600/mariavento1.png"
+CASTELO ="http://www.fazarte.com.br/components/com_virtuemart/shop_image/product/Unic__rnio_4f48d8b8b7b1c.png"
+PIANO ="https://illustorium.com/files/piano-music-notes.png"
+BEIJO ="http://bp3.blogger.com/_A_cZ-NdBNt4/R4w0usTv5KI/AAAAAAAAAbI/tVUER5kJIO4/s1600/disney-clipart-tarzan18.gif"
+FIM = "http://3.bp.blogspot.com/-zA1VKzme-9g/UZU6AxIeWQI/AAAAAAAAM_8/t7hzuQQkVhs/s1600/cora%C3%A7%C3%A3o+subindo.gif"
 
 def criarcenas():
     floresta = Cena(img=FLORESTA)
