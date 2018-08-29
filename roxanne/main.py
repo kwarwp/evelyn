@@ -29,7 +29,7 @@ class Cubo:
         self.cena = Cena(TEMPLOTRAS1)
         self.lug.entra(self.cena)
         self.per.entra(self.cena)
-        .
+        self.lug
 
     def shuffle_face(*_):
         faces = self.perf
