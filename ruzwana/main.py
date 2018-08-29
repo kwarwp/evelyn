@@ -1,24 +1,44 @@
 # evelyn.ruzwana.main.py
-from _spy.vitollino.main import Cena, Texto, Elemento
-from _spy.viollino.main import INVENTARIO as inv
+from _spy.vitollino.main import Elemento, Cena, Texto, STYLE
+from _spy.vitollino.main import INVENTARIO as inv
+STYLE["width"]=1150 
+STYLE["height"]="600px" 
 
 TARZAN = "https://vignette.wikia.nocookie.net/vsbattles/images/6/68/Tarzan.png/revision/latest?cb=20170117061234"
-CASTELO = "http://cdn5.colorir.com/desenhos/color/201608/castelo-fantastico-edificios-castelos-1212559.jpg"
-CINDERELA = "http://1.bp.blogspot.com/-2tR96Ygxq1w/UktUBEcmR4I/AAAAAAAAbd0/V2pztOVgW-Y/s1600/princesa-cinderela-desenho-colorido-disney-com-fundo-transparente-dibujos-ideia-criativa+(1).png"
-CASINHA = "http://cdn5.colorir.com/desenhos/color/201605/casa-con-cuori-desenhos-dos-utentes-pintado-por-jejezinha-1203206.jpg"
+CINDERELA = "https://4.bp.blogspot.com/-c_4RlOC4vRk/WD8fPzbqbcI/AAAAAAAACA0/1ian8CfRW9o-HTtSpVWOU2AG1TmmkUY3QCLcB/s1600/Cinderella-Transparent-PNG.png"
+ALICE = "https://3.bp.blogspot.com/-o7Y78sYGkjY/V6O1G7WysSI/AAAAAAAAMO8/IG0Q7cJKKcYA70fLNINSaLG02t9fQT52QCLcB/s1600/ALICE%2B%25283%2529.png"
 
-ALICE = "https://icon2.kisspng.com/20180327/uue/kisspng-alice-liddell-alice-s-adventures-in-wonderland-the-alice-in-wonderland-5ab9ee8c10bb20.5426997015221346680685.jpg"
-PANTANO = "http://2.bp.blogspot.com/_3WptCxQeZj8/TS6pqwa6MXI/AAAAAAAAA00/wr6duOxFZpc/s1600/p%25C3%25A2ntano.jpg"
+CASTELO = "https://i.pinimg.com/originals/01/3a/9d/013a9d6ffc6bb0ed57c897df0475f8f1.gif"
+CASINHA = "http://www.meriti.rj.gov.br/iptu2018/img/casinha.png"
+PANTANO = "https://vignette.wikia.nocookie.net/clubpenguin/images/6/6a/Pantano_Pegajoso.PNG/revision/latest?cb=20140517014109&path-prefix=es"
 
 def criarcenas():
     castelo = Cena(img=CASTELO)
     casinha = Cena(img=CASINHA)
+    pantano = Cena(img=PANTANO)
     castelo.direita = casinha
+    casinha.direita = pantano
+    casinha.esquerda = castelo
+    pantano.esquerda = casinha
     
-    tarzan = Elemento(img=TARZAN, tit="Tarzan", style=dict(left="100px",top="160px" ,width="60px", height="200px"))
+    tarzan = Elemento(img=TARZAN, tit="Tarzan", style=dict(left="400px", top= "325px", width= "300px", height="300px"))
     tarzan.entra(castelo)
-    etarzan = Texto (castelo, "Que lugar é esse?")
-    textocastelo = Texto (castelo, "Tarzan encontra jesuitas na floresta que tentam catequisa-lo. Devido a sua recusa, foi levado por eles à Europa para tentarem novamente. Dessa vez, imerso na cultura europeia e hospedado em um castelo")
+    etarzan = Texto (castelo, "Eu sou o tarzan!")
     tarzan.vai = etarzan.vai
-    textocastelo.vai()
-criarcenas() 
+    
+    cinderela = Elemento(img=CINDERELA, tit="Cinderela", style=dict(left="800px", top= "225px", width= "300px", height="400px"))
+    cinderela.entra(casinha)
+    ecinderela = Texto (casinha, "Bom dia!")
+    cinderela.vai = ecinderela.vai
+    
+    alice = Elemento(img=ALICE, tit="Tarzan", style=dict(left="800px", top= "320px", width= "300px", height="300px"))
+    alice.entra(pantano)
+    ealice = Texto (pantano, "Eu sou o tarzan!")
+    alice.vai = ealice.vai
+    
+    castelo.vai()
+    
+    
+criarcenas()
+    
+    
