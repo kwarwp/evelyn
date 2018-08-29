@@ -44,4 +44,5 @@ def criarcenas():
     fim.entra(castelo)
     fim.vai = efim.vai
     
-    
+    floresta.vai()
+criarcenas()
