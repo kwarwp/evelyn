@@ -153,3 +153,10 @@ IndentationError: unexpected indent
                                               ^
 SyntaxError: invalid syntax
 '''},
+{'date': 'Wed Aug 29 2018 11:25:37.846 GMt-0300 (Hora oficial do Brasil) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 23
+  cinderela = Elemento (img=CINDERELA, tit="Cinderela", style=dict(left="100px", top="160px", width="60px", height="200px))
+                                                                                                                           ^
+SyntaxError: EOL while scanning string literal
+'''},
