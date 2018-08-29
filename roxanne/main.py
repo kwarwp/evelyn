@@ -42,8 +42,8 @@ class Cubo:
         faces = self.perf
         shuffle(faces)
         self.per.img.src = ACTIVE+faces[0]+POS
-        if self.per_time < 1000:
-            self.per_time *= 1.5
+        if self.per_time < 500:
+            self.per_time *= 1.2
             timer.set_timeout(self.shuffle_face, self.per_time)
         else:
             self.per_time = 10
@@ -51,8 +51,8 @@ class Cubo:
         places= self.lugf
         shuffle (places)
         self.lug.img.src = ACTIVE+places[0]+POS
-        if self.lug_time < 1000:
-            self.lug_time *= 1.5
+        if self.lug_time < 500:
+            self.lug_time *= 1.2
             timer.set_timeout(self.shuffle_place, self.lug_time)
         else:
             self.lug_time = 10
