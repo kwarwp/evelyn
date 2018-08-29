@@ -19,6 +19,8 @@ TEMPLOTRAS1 = "Introducao_a_Computacao/Untitled_20180828_110147.jpg",
 ACTIVE = "http://activufrj.nce.ufrj.br/studio/"
 POS = "?disp=inline&size=G"
 from _spy.vitollino.main import Cena, Elemento, STYLE
+from random import shuffle
+
 STYLE["width"] = 800
 class Cubo:
     def __init__(self, faces=PERSONAGENS, onde=LUGARES):
@@ -29,14 +31,15 @@ class Cubo:
         self.cena = Cena(TEMPLOTRAS1)
         self.lug.entra(self.cena)
         self.per.entra(self.cena)
-        self.lug
+        self.lug.vai = self.shuffle_place
+        self.per.vai = self.shuffle_face
 
     def shuffle_face(*_):
         faces = self.perf
         shuffle(faces)
         self.per.img.src = faces[0]
-    def shuffleplace (*):
+    def shuffle_place (*_):
         places= self.lugf
         shuffle (places)
-        self.lug.img.src = places [0]
+        self.lug.img.src = places[0]
 Cubo ()
