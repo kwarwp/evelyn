@@ -37,7 +37,7 @@ def criarcenas():
     
     beijo = Elemento(img=BEIJO, tit="Beijo", style=dict(left="100px",top="160",width="60px",heigth="200px"))
     beijo.entra(castelo)
-    beijo = Texto(castelo, "Os dois se apaixonam e...")
+    ebeijo = Texto(castelo, "Os dois se apaixonam e...")
     beijo.vai = ebeijo.vai
     
     fim = Elemento(img=FIM, tit="Fim", style=dict(left="100px",top="160",width="60px",heigth="200px"))
