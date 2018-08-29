@@ -10,14 +10,14 @@ CASTELO = "https://i.imgur.com/vB3AAMl.png"
 PERSONAGENS = dict(
 ALICE = "https://i.imgur.com/wLTlDgD.png",
 BARBIE = "https://i.imgur.com/a3oxZpW.png",
-HOMEMARANHA = "https://i.imgur.com/q4YqcdK.png",
-MESTRE = "https://i.imgur.com/wbOu85i.png",
+HOMEM_ARANHA = "https://i.imgur.com/q4YqcdK.png",
+MESTRE_YODA = "https://i.imgur.com/wbOu85i.png",
 CINDERELA = "https://i.imgur.com/8YSQS00.png",
 TARZAN = "https://i.imgur.com/I1KXTEK.png"
 )
 TEMPLOTRAS1 = "Introducao_a_Computacao/Untitled_20180828_110147.jpg",
-ACTIVE = "http://activufrj.nce.ufrj.br/studio/"
-POS = "?disp=inline&size=G"
+ACTIVE = "" #"http://activufrj.nce.ufrj.br/studio/"
+POS = "" #"?disp=inline&size=G"
 from _spy.vitollino.main import Cena, Elemento, STYLE
 from random import shuffle
 from browser import timer
