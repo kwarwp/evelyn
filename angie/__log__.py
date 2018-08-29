@@ -154,3 +154,10 @@ NameError: name 'Floresta' is not defined
     alice = Elemento(img=Alice, tit="ALICE", style=dict(left="100px", top="160px", width="60px", height="200px")) 
 NameError: name 'Alice' is not defined
 '''},
+{'date': 'Wed Aug 29 2018 11:22:27.659 GMt-0300 (Horário Padrão de Brasília) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 16
+  barbie = Elemento(img=BARBIE, tit="BARBIE", style=dict(left="100px", top="160px", width="60px", height="200 
+                                                                                                              ^
+SyntaxError: EOL while scanning string literal
+'''},
