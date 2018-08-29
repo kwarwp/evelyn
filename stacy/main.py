@@ -42,7 +42,6 @@ def criarcenas():
     
     fim = Elemento(img=FIM, tit="Fim", style=dict(left="100px",top="160",width="60px",heigth="200px"))
     fim.entra(castelo)
-    fim.vai = efim.vai
     
     floresta.vai()
 criarcenas()
