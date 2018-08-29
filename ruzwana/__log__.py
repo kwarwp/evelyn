@@ -146,3 +146,10 @@ IndentationError: unexpected indent
   ^
 IndentationError: unexpected indent
 '''},
+{'date': 'Wed Aug 29 2018 11:24:26.156 GMt-0300 (Hora oficial do Brasil) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 3
+  from _py.vitollino.main import INVENTARIO as
+                                              ^
+SyntaxError: invalid syntax
+'''},
