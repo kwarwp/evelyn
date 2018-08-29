@@ -210,3 +210,10 @@ IndentationError: unexpected indent
   ^
 IndentationError: unexpected indent
 '''},
+{'date': 'Wed Aug 29 2018 11:52:39.771 GMt-0300 (Horário Padrão de Brasília) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 26
+  tarzan = Elemento(img=TARZAN_EM_PE, tit="Tarzan", style=dict(right="50px", top="50px", width="50px", heighth="50px"))
+  ^
+IndentationError: unexpected indent
+'''},
