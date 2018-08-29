@@ -16,3 +16,4 @@ def criarcenas():
     
     tarzan = Elemento(img=TARZAN_NA_SELVA, tit="Tarzan", style=dict(left="150px", top="150px", width="150px", heigth="150px")).main.py
     tarzan.entra(selva)
+    etarzan = texto (selva, "
