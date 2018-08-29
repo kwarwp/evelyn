@@ -403,3 +403,10 @@ NameError: name 'ealice' is not defined
     castelo.entra
 AttributeError: 'Cena' object has no attribute 'entra'
 '''},
+{'date': 'Wed Aug 29 2018 11:43:36.874 GMt-0300 (Horário Padrão de Brasília) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 24
+  cinderela = Elemento(img=CINDERELA, tit="Tarzan", style=dict(left="100px",top="160px" ,width="60px", height="200px"))
+  ^
+IndentationError: unexpected indent
+'''},
