@@ -428,3 +428,10 @@ IndentationError: unexpected indent
     alice = Elemento(img=ALICE, tit="Alice", style=dit(left="100px",top="160px" ,width="60px", height="200px"))
 NameError: name 'dit' is not defined
 '''},
+{'date': 'Wed Aug 29 2018 11:44:10.163 GMt-0300 (Horário Padrão de Brasília) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 24
+  cinderela = Elemento(img=CINDERELA, tit="cinderela", style=dict(left="100px",top="160px" ,width="60px", height="200px"))
+  ^
+IndentationError: unexpected indent
+'''},
