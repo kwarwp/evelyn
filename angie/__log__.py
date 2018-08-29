@@ -168,3 +168,10 @@ SyntaxError: EOL while scanning string literal
                                                                                                              ^
 SyntaxError: EOL while scanning string literal
 '''},
+{'date': 'Wed Aug 29 2018 11:24:03.513 GMt-0300 (Horário Padrão de Brasília) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 16
+  barbie = Elemento(img=BARBIE, tit="barbie", style=dict(left="100px", top="160px", width="60px", height="200 
+                                                                                                              ^
+SyntaxError: EOL while scanning string literal
+'''},
