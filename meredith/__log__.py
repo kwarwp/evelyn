@@ -22,3 +22,10 @@ SyntaxError: invalid syntax
     Jogo.vai()
 AttributeError: 'function' object has no attribute 'vai'
 '''},
+{'date': 'Wed Aug 29 2018 13:58:58.287 GMt-0300 (Horário Padrão de Brasília) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 6
+  ALICE = "https://3.bp.blogspot.com/-o7Y78sYGkjY/V6O1G7WysSI/AAAAAAAAMO8/IG0Q7cJKKcYA70fLNINSaLG02t9fQT52QCLcB/s1600/ALICE%2B%25283%2529.png'
+                                                                                                                                              ^
+SyntaxError: EOL while scanning string literal
+'''},
