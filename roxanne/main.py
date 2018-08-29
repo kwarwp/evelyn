@@ -29,8 +29,14 @@ class Cubo:
         self.cena = Cena(TEMPLOTRAS1)
         self.lug.entra(self.cena)
         self.per.entra(self.cena)
-        
+        .
+
     def shuffle_face(*_):
         faces = self.perf
         shuffle(faces)
         self.per.img.src = faces[0]
+    def shuffleplace (*):
+        places= self.lugf
+        shuffle (places)
+        self.lug.img.src = places [0]
+Cubo ()
