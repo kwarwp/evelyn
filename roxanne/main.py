@@ -27,19 +27,20 @@ class Cubo:
         self.perf = list(faces.values())
         self.per = Elemento(ACTIVE+self.perf[0]+POS, style=dict(left=100, top=100, width=300, height="300px"))
         self.lugf = list(onde.values())
-        self.lug = Elemento(ACTIVE+self.lugf[0]+POS, style=dict(left=400, top=100, width=300, height="300px"))
+        self.lug = Elemento(ACTIVE+self.lugf[0]+POS, style=dict(left=600, top=100, width=300, height="300px"))
         self.cena = Cena(TEMPLOTRAS1)
         self.lug.entra(self.cena)
         self.per.entra(self.cena)
         self.lug.vai = self.shuffle_place
         self.per.vai = self.shuffle_face
+        self.cena.vai()
 
-    def shuffle_face(*_):
+    def shuffle_face(self, *_):
         faces = self.perf
         shuffle(faces)
-        self.per.img.src = faces[0]
-    def shuffle_place (*_):
+        self.per.img.src = ACTIVE+faces[0]+POS
+    def shuffle_place (self, *_):
         places= self.lugf
         shuffle (places)
-        self.lug.img.src = places[0]
+        self.lug.img.src = ACTIVE+places[0]+POS
 Cubo ()
