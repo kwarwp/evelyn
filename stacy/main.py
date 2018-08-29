@@ -15,7 +15,12 @@ def criarcenas():
     floresta.direita = castelo
     
     alice = Elemento(img=ALICE, tit="Alice", style=dict(left="100px",top="160",width="60px",heigth="200px"))
+    alice.entra(floresta)
+    ealice = Texto(floresta, "Oh, que lindo! Quem será que mora aqui?")
+    alice.vai = ealice.vai
+    
     tarzan = Elemento(img=TARZAN, tit="Tarzan", style=dict(left="100px",top="160",width="60px",heigth="200px"))
+    
     
     
     
