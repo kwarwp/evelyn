@@ -47,3 +47,10 @@ TypeError: 'module' object is not callable
   ^
 IndentationError: expected an indented block
 '''},
+{'date': 'Wed Aug 29 2018 09:32:36.851 GMt-0300 (Horário Padrão de Brasília) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 26
+  def __init__(self):
+  ^
+IndentationError: expected an indented block
+'''},
