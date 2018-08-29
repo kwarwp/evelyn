@@ -53,7 +53,7 @@ class Cubo:
         self.lug.img.src = ACTIVE+places[0]+POS
         if self.lug_time < 1000:
             self.lug_time *= 1.5
-            timer.set_timeout(self.shuffle_face, self.lug_time)
+            timer.set_timeout(self.shuffle_place, self.lug_time)
         else:
             self.lug_time = 10
 Cubo ()
