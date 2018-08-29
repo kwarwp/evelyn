@@ -4,7 +4,7 @@ from _spy.vitollino.main import INVENTARIO as inv
 STYLE["width"]=500
 
 CINDERELA= "http://4.bp.blogspot.com/-YIA_Laq9LdY/UktTZHVpLFI/AAAAAAAAbds/tJrZLPUEyP8/s1600/princesa-cinderela-desenho-colorido-disney-com-fundo-transparente-dibujos-ideia-criativa.png"
-HOMEMARANHA= "https://2.bp.blogspot.com/-gyCodcRcBjI/WtyW28o-g-I/AAAAAAAAxyw/ec-ttcNm1RU0aeI48kmASTH2b1u1skxiACLcBGAs/s1600/Homem-Aranha%2B-%2BDe%2BVolta%2Bao%2BLar%2B-%2BFilmagens%2B-%2BExperi%25C3%25AAncia%2BNerd.png"
+HOMEMARANHA= "http://i.imgur.com/F2UTypR.png"
 ALICE= "http://www.elgrafico.mx/sites/default/files/styles/f5-689x388/public/field/image/alicia-tatuajes-portada.jpg?itok=OHT_cw9j"
 
 LABORATORIO= "https://s3-sa-east-1.amazonaws.com/uploads-anchieta-br/wp-content/uploads/2015/07/foto-quimica-6.jpg"
@@ -19,12 +19,12 @@ def criarcenas():
     laboratorio.direita = laboratorioa
     
     cinderela1 = Elemento (img=CINDERELA, tit="Cinderela", style=dict(left="100px", top="150px", width="130px", height="220px"))
-    cinderela2 = Elemento (img=CINDERELA, tit="Cinderela", style=dict(left="100px", top="100px", width="60px", height="200px"))
-    cinderela3 = Elemento (img=CINDERELA, tit="Cinderela", style=dict(left="100px", top="100px", width="60px", height="200px"))
+    cinderela2 = Elemento (img=CINDERELA, tit="Cinderela", style=dict(left="200px", top="150px", width="130px", height="220px"))
+    cinderela3 = Elemento (img=CINDERELA, tit="Cinderela", style=dict(left="100px", top="150px", width="130px", height="220px"))
     cinderela1.entra(laboratorio)
     
     cinderela2.entra(laboratorioa)
-    homemaranha = Elemento (img=HOMEMARANHA, tit="homem aranha", style=dict(left="30px", top="100px", width="60px", height="200px"))
+    homemaranha = Elemento (img=HOMEMARANHA, tit="homem aranha", style=dict(left="20px", top="80px", width="130px", height="220px"))
     homemaranha.entra(laboratorioa)
     ehomemaranha = Texto (laboratorioa, "Por favor, doutora, preciso da sua ajuda, é urgente. Sofri uma mutação, e os meus poderes estão se voltando contra mim, preciso de um antidoto")
     homemaranha.vai = ehomemaranha.vai
