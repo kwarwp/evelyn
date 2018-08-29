@@ -15,9 +15,9 @@ def criarcenas():
     mesa = Cena(img=MESA)
     selva.direita = MESA
     
-    tarzan = Elemento(img=TARZAN_NA_SELVA, tit="Tarzan", style=dict(left="150px", top="150px", width="150px", heigth="150px")).main.py
+    tarzan = Elemento(img=TARZAN_NA_SELVA, tit="Tarzan", style=dict(left="150px", top="150px", width="150px", heigth="150px"))
     tarzan.entra(selva)
-    etarzan = texto (selva, "Tarzan, que foi criado na selva, quando chega na idade adulta, por conhecer a selva muito bem e se achar o rei dela se perde na floresta.")
+    etarzan = Texto (selva, "Tarzan, que foi criado na selva, quando chega na idade adulta, por conhecer a selva muito bem e se achar o rei dela se perde na floresta.")
     tarzan.vai = etarzan.vai
     
     selva.vai()
