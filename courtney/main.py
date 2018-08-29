@@ -13,7 +13,8 @@ CASTELO = "https://uploads.spiritfanfiction.com/fanfics/capitulos/201607/fanfict
 def criarcenas(): 
     selva = Cena(img=SELVA) 
     mesa = Cena(img=MESA)
-    selva.direita = MESA
+    selva.direita = mesa
+    mesa.esquerda = selva
     
     tarzan = Elemento(img=TARZAN_NA_SELVA, tit="Tarzan", style=dict(left="50px", top="40px", width="150px", heigth="150px"))
     tarzan.entra(selva)
