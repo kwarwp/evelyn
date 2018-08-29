@@ -54,3 +54,10 @@ NameError: name 'etarzan' is not defined
     floresta.vai()
 NameError: name 'floresta' is not defined
 '''},
+{'date': 'Wed Aug 29 2018 11:13:50.581 GMt-0300 (Horário Padrão de Brasília) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 16
+  barbie = Elemento(img=BARBIE, tit="BARBIE", style=dict(left="100px", top="160px", width="60px", height="200 
+                                                                                                              ^
+SyntaxError: EOL while scanning string literal
+'''},
