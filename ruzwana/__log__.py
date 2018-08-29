@@ -76,3 +76,10 @@ SyntaxError: invalid syntax
   ^
 IndentationError: expected an indented block
 '''},
+{'date': 'Wed Aug 29 2018 11:18:36.972 GMt-0300 (Horário Padrão de Brasília) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 34
+  def criarcenas():
+                   ^
+IndentationError: expected an indented block
+'''},
