@@ -14,9 +14,14 @@ def Jogo():
         style = dict(height = "110px", width = "100px", left = "20px", top = "50px"))
     jimmyPense1.entra(cena1)
     jimmyPense2 = Elemento(img = penseTex, 
-        style = dict(height = "110px", width = "-100 px", left = "180px", top = "50px"))
+        style = dict(height = "110px", width = "100px", left = "180px", top = "50px", transform = "scaleX(-1)"))
     jimmyPense2.entra(cena1)
     cena1.vai()
+    
+    s = jimmyPense1.img.style
+    
+    while (True):
+        
     
     
 Jogo()
