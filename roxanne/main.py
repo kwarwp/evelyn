@@ -20,6 +20,8 @@ ACTIVE = "http://activufrj.nce.ufrj.br/studio/"
 POS = "?disp=inline&size=G"
 from _spy.vitollino.main import Cena, Elemento, STYLE
 from random import shuffle
+from browser import timer
+
 
 STYLE["width"] = 800
 class Cubo:
@@ -33,14 +35,25 @@ class Cubo:
         self.per.entra(self.cena)
         self.lug.vai = self.shuffle_place
         self.per.vai = self.shuffle_face
+        self.lug_time = self.per_time = 10
         self.cena.vai()
 
     def shuffle_face(self, *_):
         faces = self.perf
         shuffle(faces)
         self.per.img.src = ACTIVE+faces[0]+POS
+        if self.per_time < 1000:
+            self.per_time *= 1.5
+            timer.set_timeout(self.shuffle_face, self.per_time)
+        else:
+            self.per_time = 10
     def shuffle_place (self, *_):
         places= self.lugf
         shuffle (places)
         self.lug.img.src = ACTIVE+places[0]+POS
+        if self.lug_time < 1000:
+            self.lug_time *= 1.5
+            timer.set_timeout(self.shuffle_face, self.lug_time)
+        else:
+            self.lug_time = 10
 Cubo ()
