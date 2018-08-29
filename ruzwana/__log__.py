@@ -132,3 +132,10 @@ Traceback (most recent call last):
     alice = Elemento(img=ALICE, TIT="aLICE", STYLE=DICT(left="100px", top="160px", width="60px", heigth="200px"))
 NameError: name 'DICT' is not defined
 '''},
+{'date': 'Wed Aug 29 2018 11:23:46.987 GMt-0300 (Horário Padrão de Brasília) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 28
+  cinderela = Elemento(img=CIDERELA, tit="Ciderela", style=dict(left="400px", top= "325px", width= "300px", height="300px"))
+  ^
+IndentationError: unexpected indent
+'''},
