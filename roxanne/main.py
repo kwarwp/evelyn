@@ -1,11 +1,11 @@
 # evelyn.roxanne.main.py
 LUGARES = dict(
-PEDRAS1 = "Introducao_a_Computacao/Untitled_20180828_102220.jpg",
-PEDRAS2 = "Introducao_a_Computacao/Untitled_20180828_105412.jpg",
-PEDRAS3 = "Introducao_a_Computacao/Untitled_20180828_105419.jpg",
-PEDRAS4 = "Introducao_a_Computacao/Untitled_20180828_105624.jpg",
-TEMPLOTRAS2 = "Introducao_a_Computacao/Untitled_20180828_110148.jpg",
-TEMPLOTRAS3 = "Introducao_a_Computacao/Untitled_20180828_110145.jpg"
+FLORESTA = "https://i.imgur.com/7i2hRiM.png",
+CIDADE = "https://i.imgur.com/RDp29Ep.png",
+CHA = "https://i.imgur.com/FvRIm6q.png",
+PANTANO = "https://i.imgur.com/6QGg2sF.png",
+CASA = "https://i.imgur.com/Itjcle8.png",
+CASTELO = "https://i.imgur.com/vB3AAMl.png"
 )
 PERSONAGENS = dict(
 ALICE = "https://i.imgur.com/wLTlDgD.png",
@@ -13,7 +13,7 @@ BARBIE = "https://i.imgur.com/a3oxZpW.png",
 HOMEMARANHA = "https://i.imgur.com/q4YqcdK.png",
 MESTRE = "https://i.imgur.com/wbOu85i.png",
 CINDERELA = "https://i.imgur.com/8YSQS00.png",
-MOSTROS = "Introducao_a_Computacao/Untitled_20180828_105627.jpg"
+TARZAN = "https://i.imgur.com/I1KXTEK.png"
 )
 TEMPLOTRAS1 = "Introducao_a_Computacao/Untitled_20180828_110147.jpg",
 ACTIVE = "http://activufrj.nce.ufrj.br/studio/"
