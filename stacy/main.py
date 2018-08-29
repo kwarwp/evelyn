@@ -46,7 +46,7 @@ def criarcenas():
     etarzan = Texto(acastelo, "Surge um lindo príncipe que tira Alice para dançar...")
     tarzan.vai = etarzan.vai
     
-    beijo = Elemento(img=BEIJO, tit="Beijo", style=dict(left="100px",top="160",width="190px",heigth="200px"))
+    beijo = Elemento(img=BEIJO, tit="Beijo", style=dict(left="100px",top="160",width="190px",heigth="280px"))
     beijo.entra(bcastelo)
     ebeijo = Texto(bcastelo, "Os dois se apaixonam e...")
     beijo.vai = ebeijo.vai
