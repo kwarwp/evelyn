@@ -32,7 +32,7 @@ def criarcenas():
     
     tarzan = Elemento(img=TARZAN, tit="Tarzan", style=dict(left="100px",top="160",width="60px",heigth="200px"))
     tarzan.entra(castelo)
-    tarzan = Texto(castelo, "Surge um lindo príncipe que tira Alice para dançar...")
+    etarzan = Texto(castelo, "Surge um lindo príncipe que tira Alice para dançar...")
     tarzan.vai = etarzan.vai
     
     beijo = Elemento(img=BEIJO, tit="Beijo", style=dict(left="100px",top="160",width="60px",heigth="200px"))
