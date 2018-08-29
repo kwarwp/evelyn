@@ -20,4 +20,5 @@ def criarcenas():
     etarzan = texto (selva, "Tarzan, que foi criado na selva, quando chega na idade adulta, por conhecer a selva muito bem e se achar o rei dela se perde na floresta.")
     tarzan.vai = etarzan.vai
     
-    selva.vai
+    selva.vai()
+criarcenas()
