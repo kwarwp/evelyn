@@ -225,3 +225,29 @@ TypeError: can't set attributes of built-in/extension type 'object'
     cena.elt <= self.elt
 TypeError: can't add 'NoneType' object to DOMNode instance
 '''},
+{'date': 'Thu Aug 30 2018 20:07:00.153 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''Traceback (most recent call last):
+  module _core.main line 160
+    dialog.action(lambda *_: self.start()
+  module _core.supygirls_factory line 135
+    self.act(self, lambda *_: self.hide() or extra()) if self.act else None
+  module _core.supygirls_factory line 306
+    return self._first_response(lambda: self._executa_acao(), self.extra, self.error)
+  module _core.supygirls_factory line 278
+    traceback.print_exc(file=sys.stderr)
+  module _core.supygirls_factory line 295
+    exec(self.code, glob)  # dict(__name__="__main__"))
+  module <module> line 232
+    Jogo().inicia()
+  module <module> line 225
+    self.mesa = Mesa(jogadores)
+  module <module> line 189
+    self.baralho = Baralho()
+  module <module> line 133
+    self.monta_baralho()
+  module <module> line 147
+    self.cartas.append(Tesouro(face=tesouro))
+  module <module> line 82
+    self.elt = SPRITES[face]
+KeyError: 1
+'''},
