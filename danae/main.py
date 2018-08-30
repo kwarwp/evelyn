@@ -23,7 +23,7 @@
 """
 from random import shuffle
 
-from view.kwarwp.kuarup import Elemento, Cena
+from _spy.vitollino.main import Elemento, Cena
 
 DESISTE = True
 PERIGOS = "aranha mumia desabe fogo cobra".split()
@@ -63,13 +63,13 @@ SPRITES = dict(
 
 
 class Sprite(Elemento):
-    def __init__(self, cena, img, index=0, w=100, h=100):
-        super().__init__(IMGS[img], cena=cena, tit=img, style=dict(
+    def __init__(self, img, index=0, w=100, h=100):
+        super().__init__(IMGS[img], tit=img, style=dict(
             position="relative", width=w, height="{}px".format(h), overflow="hidden"))
         self.img.style.margin = "-{}px 0 0 0".format(index * w)
 
 
-SPRITES = {key: Sprite(*args) for key, *args in SPRITES.items()}
+SPRITES = {key: Sprite(img, ind) for key, (img, ind) in SPRITES.items()}
 
 
 class Carta(object):
