@@ -129,3 +129,25 @@ AttributeError: 'Mesa' object has no attribute 'acampamento'
     SPRITES = {key: Sprite(img, ind, tit=key) for key, (img, ind) in SPRITES.items()}
 TypeError: __init__() got multiple values for argument 'tit'
 '''},
+{'date': 'Thu Aug 30 2018 20:00:18.987 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''Traceback (most recent call last):
+  module _core.main line 160
+    dialog.action(lambda *_: self.start()
+  module _core.supygirls_factory line 135
+    self.act(self, lambda *_: self.hide() or extra()) if self.act else None
+  module _core.supygirls_factory line 306
+    return self._first_response(lambda: self._executa_acao(), self.extra, self.error)
+  module _core.supygirls_factory line 278
+    traceback.print_exc(file=sys.stderr)
+  module _core.supygirls_factory line 295
+    exec(self.code, glob)  # dict(__name__="__main__"))
+  module <module> line 227
+    Jogo().inicia()
+  module <module> line 220
+    self.mesa = Mesa(jogadores)
+  module <module> line 181
+    self.jogadores_ativos = self.jogadores = [Jogador(jogador, self) for jogador in jogadores]
+  module <module> line 156
+    self.sprite.entra(mesa.acampamento)
+AttributeError: 'Mesa' object has no attribute 'acampamento'
+'''},
