@@ -197,3 +197,31 @@ AttributeError: 'Elemento' object has no attribute 'nome'
     self.chance = shuffle(list(range(20)))
 TypeError: can't set attributes of built-in/extension type 'object'
 '''},
+{'date': 'Thu Aug 30 2018 20:05:36.278 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''Traceback (most recent call last):
+  module _core.main line 160
+    dialog.action(lambda *_: self.start()
+  module _core.supygirls_factory line 135
+    self.act(self, lambda *_: self.hide() or extra()) if self.act else None
+  module _core.supygirls_factory line 306
+    return self._first_response(lambda: self._executa_acao(), self.extra, self.error)
+  module _core.supygirls_factory line 278
+    traceback.print_exc(file=sys.stderr)
+  module _core.supygirls_factory line 295
+    exec(self.code, glob)  # dict(__name__="__main__"))
+  module <module> line 232
+    Jogo().inicia()
+  module <module> line 228
+    self.mesa.inicia()
+  module <module> line 194
+    self.rodada(artefato)
+  module <module> line 201
+    while self.turno():
+  module <module> line 212
+    self.apresenta(carta_corrente)
+  module <module> line 207
+    carta.entra(self.labirinto)
+  module <module> line 96
+    cena.elt <= self.elt
+TypeError: can't add 'NoneType' object to DOMNode instance
+'''},
