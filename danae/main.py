@@ -90,40 +90,48 @@ class Baralho(object):
 
 
 class Mesa(object):
-    def __init__(self):
+    def __init__(self, jogadores):
+        self.jogadores = jogadores
         self.labirinto = Elemento()
-        self.salas = []
+        self.baralho = Baralho()
+        self.inicia()
 
     def inicia(self):
-        self.salas = []
+        self.baralho.embaralha()
+        self.perigo = self.salas = []
+        self.jogadores_ativos = []
+        for artefato in ARTEFATOS:
+            self.rodada()
+        
+
+    def rodada(self, artefato):
+        while self.turno():
+            pass
+        
 
     def apresenta(self, carta):
         self.salas.append(carta)
         carta.entra(self.labirinto)
 
-
-class Jogo:
-    def __init__(self, jogadores=9):
-        self.jogadores = jogadores
-        self.jogadores_ativos = []
-        self.mesa = Mesa()
-        self.baralho = Baralho()
-
-    def inicia(self):
-        self.baralho.embaralha()
-        Carta.PERIGO = []
-        while self.rodada():
-            pass
-
-    def rodada(self):
+    def turno(self):
         carta_corrente = self.baralho.descarta()
         jogadores_saindo = []
-        self.mesa.apresenta(carta_corrente)
+        self.apresenta(carta_corrente)
+        carta_corrente.divide(jogadores_ativos)
         for jogador in self.jogadores_ativos:
             if jogador.joga() == DESISTE:
                 self.jogadores_ativos.remove(jogador)
                 jogadores_saindo.append(jogador)
         return carta_corrente.premia(jogadores_saindo)
+
+
+class Jogo:
+    def __init__(self, jogadores=9):
+        self.mesa = Mesa(jogadores)
+
+    def inicia(self):
+        Carta.PERIGO = []
+        self.mesa.inicia()
 
 
 if __name__ == '__main__':
