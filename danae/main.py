@@ -38,6 +38,7 @@ class Carta(object):
 
     def __init__(self, face):
         self.face = face
+        self.valor = int(face) if face.isdigit() else 0
         self.elt = None
 
     def entra(self, cena):
@@ -60,8 +61,9 @@ class Artefato(Carta):
 
 class Tesouro(Carta):
     def premia(self, jogadores):
-        if len(jogadores) == 1:
-            jogadores[0].recebe(10//self.VALOR)
+        for jogador in jogadores:
+            jogador.recebe(self.valor//len(jogadodes))
+            self.valor %= len(jogadores)
         return True
     pass
 
