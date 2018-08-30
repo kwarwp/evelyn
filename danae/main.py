@@ -71,9 +71,10 @@ class Tesouro(Carta):
 class Baralho(object):
     def __init__(self):
         self.cartas = []
-
-    def embaralha(self):
         self.monta_baralho()
+
+    def embaralha(self, artefato):
+        self.cartas.append(Artefato(face=artefato))
         shuffle(self.cartas)
 
     def descarta(self):
@@ -83,28 +84,26 @@ class Baralho(object):
         self.cartas = []
         for perigo in PERIGOS:
             self.cartas.append(Perigo(face=perigo))
-        for artefato in ARTEFATOS:
-            self.cartas.append(Artefato(face=artefato))
         for tesouro in TESOUROS:
             self.cartas.append(Tesouro(face=tesouro))
 
 
 class Mesa(object):
     def __init__(self, jogadores):
-        self.jogadores = jogadores
+        self.jogadores = [Jogador(jogador) for jogador in jogadores]
         self.labirinto = Elemento()
         self.baralho = Baralho()
-        self.inicia()
+        #self.inicia()
 
     def inicia(self):
-        self.baralho.embaralha()
-        self.perigo = self.salas = []
-        self.jogadores_ativos = []
         for artefato in ARTEFATOS:
-            self.rodada()
+            self.rodada(artefato)
         
 
     def rodada(self, artefato):
+        self.jogadores_ativos = self.jogadores[:]
+        self.baralho.embaralha(artefato)
+        self.perigo = self.salas = []
         while self.turno():
             pass
         
@@ -130,7 +129,6 @@ class Jogo:
         self.mesa = Mesa(jogadores)
 
     def inicia(self):
-        Carta.PERIGO = []
         self.mesa.inicia()
 
 
