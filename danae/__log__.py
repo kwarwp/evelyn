@@ -251,3 +251,29 @@ TypeError: can't add 'NoneType' object to DOMNode instance
     self.elt = SPRITES[face]
 KeyError: 1
 '''},
+{'date': 'Thu Aug 30 2018 20:08:15.182 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''Traceback (most recent call last):
+  module _core.main line 160
+    dialog.action(lambda *_: self.start()
+  module _core.supygirls_factory line 135
+    self.act(self, lambda *_: self.hide() or extra()) if self.act else None
+  module _core.supygirls_factory line 306
+    return self._first_response(lambda: self._executa_acao(), self.extra, self.error)
+  module _core.supygirls_factory line 278
+    traceback.print_exc(file=sys.stderr)
+  module _core.supygirls_factory line 295
+    exec(self.code, glob)  # dict(__name__="__main__"))
+  module <module> line 232
+    Jogo().inicia()
+  module <module> line 228
+    self.mesa.inicia()
+  module <module> line 194
+    self.rodada(artefato)
+  module <module> line 201
+    while self.turno():
+  module <module> line 219
+    carta.premia(jogador)
+  module <module> line 122
+    for jogador in jogadores:
+TypeError: 'Jogador' object is not iterable
+'''},
