@@ -63,13 +63,13 @@ SPRITES = dict(
 
 
 class Sprite(Elemento):
-    def __init__(self, img, index=0, w=100, h=100):
-        super().__init__(IMGS[img], tit=img, style=dict(
+    def __init__(self, img, tit="", index=0, w=100, h=100):
+        super().__init__(img, tit=tit, style=dict(
             position="relative", width=w, height="{}px".format(h), overflow="hidden"))
         self.img.style.margin = "-{}px 0 0 0".format(index * w)
 
 
-SPRITES = {key: Sprite(img, ind) for key, (img, ind) in SPRITES.items()}
+SPRITES = {key: Sprite(img, ind, tit=key) for key, (img, ind) in SPRITES.items()}
 
 
 class Carta(object):
@@ -152,7 +152,8 @@ class Baralho(object):
 
 class Jogador(object):
     def __init__(self, jogador, mesa):
-        self.sprite = Sprite(mesa.acampamento, jogador)
+        self.sprite = Sprite(IMGS["CARTASENTRAESAI"], 0, tit=jogador)
+        self.sprite.entra(mesa.acampamento)
         self.jogador = "from {mod}.main import {mod}, self.jogada = {mod}".format(mod=jogador)
         self.jogada, self.joias, self.mesa = None, 0, mesa
         self.chance = shuffle(list(range(20)))
@@ -215,7 +216,7 @@ class Mesa(object):
 
 
 class Jogo:
-    def __init__(self, jogadores=9):
+    def __init__(self, jogadores=JOGADORES):
         self.mesa = Mesa(jogadores)
 
     def inicia(self):
