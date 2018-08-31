@@ -23,7 +23,8 @@
 """
 from random import shuffle
 
-from _spy.vitollino.main import Elemento, Cena
+from _spy.vitollino.main import Elemento, Cena, STYLE
+STYLE["width"]= 800
 
 DESISTE = True
 PERIGOS = "aranha mumia desabe fogo cobra".split()
@@ -52,13 +53,13 @@ IMGS = dict(
 )
 IMGS = {key: ACTIVE + img + POS for key, img in IMGS.items()}
 SPRITES = dict(
-    aranha=(IMGS["PEDRAS1"], 0), mumia=(IMGS["PEDRAS1"], 0), desabe=(IMGS["PEDRAS1"], 0),
-    fogo=(IMGS["PEDRAS1"], 0), cobra=(IMGS["PEDRAS1"], 0),
-    estatua=(IMGS["PEDRAS1"], 0), vaso=(IMGS["PEDRAS1"], 0), colar=(IMGS["PEDRAS1"], 0),
-    broche=(IMGS["PEDRAS1"], 0), adorno=(IMGS["PEDRAS1"], 0),
-    t1=(IMGS["PEDRAS1"], 0), t2=(IMGS["PEDRAS1"], 0), t3=(IMGS["PEDRAS1"], 0), t4=(IMGS["PEDRAS1"], 0),
-    t5=(IMGS["PEDRAS1"], 0), t7=(IMGS["PEDRAS1"], 0), t9=(IMGS["PEDRAS1"], 0), t11=(IMGS["PEDRAS1"], 0),
-    t13=(IMGS["PEDRAS1"], 0),
+    aranha=(IMGS["MOSTROS1"], 0), mumia=(IMGS["MOSTROS1"], 0), desabe=(IMGS["MOSTROS"], 0),
+    fogo=(IMGS["MOSTROS"], 0), cobra=(IMGS["MOSTROS"], 0),
+    estatua=(IMGS["ARTEFATOS1"], 0), vaso=(IMGS["ARTEFATOS1"], 0), colar=(IMGS["ARTEFATOS2"], 0),
+    broche=(IMGS["ARTEFATOS2"], 0), adorno=(IMGS["ARTEFATOS2"], 0),
+    t1=(IMGS["PEDRAS1"], 0), t2=(IMGS["PEDRAS1"], 1), t3=(IMGS["PEDRAS1"], 2), t4=(IMGS["PEDRAS2"], 0),
+    t5=(IMGS["PEDRAS2"], 1), t7=(IMGS["PEDRAS2"], 2), t9=(IMGS["PEDRAS3"], 0), t11=(IMGS["PEDRAS3"], 1),
+    t13=(IMGS["PEDRAS3"], 2),
 )
 
 
@@ -183,6 +184,7 @@ class Mesa(object):
         # self.inicia()
 
     def inicia(self):
+        self.mesa.vai()
         for artefato in ARTEFATOS:
             self.rodada(artefato)
 
