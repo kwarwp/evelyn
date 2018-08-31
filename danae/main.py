@@ -158,7 +158,7 @@ class Jogador(object):
         self.joias += joias
 
     def joga(self):
-        return self.chance.pop()
+        return self.chance.pop() if self.chance else 0
 
     def _joga(self):
         try:
@@ -207,11 +207,11 @@ class Mesa(object):
         self.apresenta(carta_corrente)
 
         for jogador in self.jogadores_ativos:
+            for carta in self.salas:
+                carta.premia(jogador, len(self.jogadores_ativos))
             if jogador.joga() == DESISTE:
                 self.jogadores_ativos.remove(jogador)
                 jogadores_saindo.append(jogador)
-            for carta in self.salas:
-                carta.premia(jogador, len(self.jogadores_ativos))
         return self.jogadores_ativos and carta_corrente.divide(jogadores_saindo, self.salas)
 
 
