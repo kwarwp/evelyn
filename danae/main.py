@@ -63,7 +63,7 @@ SPRITES = dict(
 
 
 class Sprite(Elemento):
-    def __init__(self, img, tit="", index=0, w=100, h=100):
+    def __init__(self, img, index=0, tit="", w=100, h=100):
         super().__init__(img, tit=tit, style=dict(
             position="relative", width=w, height="{}px".format(h), overflow="hidden"))
         self.img.style.margin = "-{}px 0 0 0".format(index * w)
@@ -79,7 +79,7 @@ class Carta(object):
     def __init__(self, face):
         self.face = face
         self.valor = int(face) if face.isdigit() else 0
-        self.elt = None
+        self.elt = SPRITES[face if face.isalpha() else "t{}".format(face)]
 
     def premia(self, jogadores):
         if len(jogadores) == 1:
@@ -93,7 +93,7 @@ class Carta(object):
         return True
 
     def entra(self, cena):
-        cena.elt <= self.elt
+        cena.elt <= self.elt.elt
 
     def __eq__(self, carta):
         return carta.face == self.face
@@ -107,18 +107,19 @@ class Perigo(Carta):
 
 class Artefato(Carta):
     def divide(self, jogadores, salas):
-        return self.premia(jogadores)
-
-    def premia(self, jogadores):
         if len(jogadores) == 1:
             jogadores[0].recebe(10 // self.VALOR)
+        return True
+
+    def premia(self, jogadores):
+            
         return True
 
     pass
 
 
 class Tesouro(Carta):
-    def premia(self, jogadores):
+    def premia(self, jogador):
         for jogador in jogadores:
             jogador.recebe(self.valor // len(jogadores))
             self.valor %= len(jogadores)
@@ -156,7 +157,8 @@ class Jogador(object):
         self.sprite.entra(mesa.acampamento)
         self.jogador = "from {mod}.main import {mod}, self.jogada = {mod}".format(mod=jogador)
         self.jogada, self.joias, self.mesa = None, 0, mesa
-        self.chance = shuffle(list(range(20)))
+        self.chance = list(range(20))
+        shuffle(self.chance)
 
     pass
 
@@ -177,10 +179,14 @@ class Jogador(object):
 class Mesa(object):
     def __init__(self, jogadores):
         self.mesa = Cena(TEMPLOTRAS1)
-        self.perigo = self.salas = []
-        self.jogadores_ativos = self.jogadores = [Jogador(jogador, self) for jogador in jogadores]
         self.acampamento = Elemento("", style=dict(left=0, top=0))
         self.labirinto = Elemento("", style=dict(left=0, top=100))
+        self.perigo = self.salas = []
+        self.acampamento.entra(self.mesa)
+        self.labirinto.entra(self.mesa)
+        self.acampamento.nome = "Acampa"
+        self.labirinto.nome = "Explora"
+        self.jogadores_ativos = self.jogadores = [Jogador(jogador, self) for jogador in jogadores]
         self.baralho = Baralho()
         # self.inicia()
 
