@@ -53,10 +53,10 @@ IMGS = dict(
 )
 IMGS = {key: ACTIVE + img + POS for key, img in IMGS.items()}
 SPRITES = dict(
-    aranha=(IMGS["MOSTROS1"], 0), mumia=(IMGS["MOSTROS1"], 0), desabe=(IMGS["MOSTROS"], 0),
+    aranha=(IMGS["MOSTROS1"], 0), mumia=(IMGS["MOSTROS1"], 1), desabe=(IMGS["MOSTROS"], 0),
     fogo=(IMGS["MOSTROS"], 0), cobra=(IMGS["MOSTROS"], 0),
-    estatua=(IMGS["ARTEFATOS1"], 0), vaso=(IMGS["ARTEFATOS1"], 0), colar=(IMGS["ARTEFATOS2"], 0),
-    broche=(IMGS["ARTEFATOS2"], 0), adorno=(IMGS["ARTEFATOS2"], 0),
+    estatua=(IMGS["ARTEFATOS1"], 0), vaso=(IMGS["ARTEFATOS1"], 1), colar=(IMGS["ARTEFATOS2"], 0),
+    broche=(IMGS["ARTEFATOS2"], 1), adorno=(IMGS["ARTEFATOS2"], 2),
     t1=(IMGS["PEDRAS1"], 0), t2=(IMGS["PEDRAS1"], 1), t3=(IMGS["PEDRAS1"], 2), t4=(IMGS["PEDRAS2"], 0),
     t5=(IMGS["PEDRAS2"], 1), t7=(IMGS["PEDRAS2"], 2), t9=(IMGS["PEDRAS3"], 0), t11=(IMGS["PEDRAS3"], 1),
     t13=(IMGS["PEDRAS3"], 2),
@@ -64,10 +64,11 @@ SPRITES = dict(
 
 
 class Sprite(Elemento):
-    def __init__(self, img, index=0, tit="", w=100, h=100):
+    def __init__(self, img, index=0, tit="", w=50, h=100):
         super().__init__(img, tit=tit, style=dict(
-            position="relative", width=w, height="{}px".format(h), overflow="hidden"))
+            position="relative", width=w, height="{}px".format(h), overflow="hidden", float="left"))
         self.img.style.margin = "-{}px 0 0 0".format(index * w)
+        self.img.style.width = "100px"
 
 
 SPRITES = {key: Sprite(img, ind, tit=key) for key, (img, ind) in SPRITES.items()}
