@@ -303,3 +303,29 @@ TypeError: 'Jogador' object is not iterable
     for jogador in jogadores:
 NameError: name 'jogadores' is not defined
 '''},
+{'date': 'Thu Aug 30 2018 21:01:40.108 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''Traceback (most recent call last):
+  module _core.main line 160
+    dialog.action(lambda *_: self.start()
+  module _core.supygirls_factory line 135
+    self.act(self, lambda *_: self.hide() or extra()) if self.act else None
+  module _core.supygirls_factory line 306
+    return self._first_response(lambda: self._executa_acao(), self.extra, self.error)
+  module _core.supygirls_factory line 278
+    traceback.print_exc(file=sys.stderr)
+  module _core.supygirls_factory line 295
+    exec(self.code, glob)  # dict(__name__="__main__"))
+  module <module> line 231
+    Jogo().inicia()
+  module <module> line 227
+    self.mesa.inicia()
+  module <module> line 193
+    self.rodada(artefato)
+  module <module> line 200
+    while self.turno():
+  module <module> line 218
+    carta.premia(jogador)
+  module <module> line 122
+    jogador.recebe(self.valor // len(jogadores))
+NameError: name 'jogadores' is not defined
+'''},
