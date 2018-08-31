@@ -329,3 +329,29 @@ NameError: name 'jogadores' is not defined
     jogador.recebe(self.valor // len(jogadores))
 NameError: name 'jogadores' is not defined
 '''},
+{'date': 'Thu Aug 30 2018 21:04:46.237 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''Traceback (most recent call last):
+  module _core.main line 160
+    dialog.action(lambda *_: self.start()
+  module _core.supygirls_factory line 135
+    self.act(self, lambda *_: self.hide() or extra()) if self.act else None
+  module _core.supygirls_factory line 306
+    return self._first_response(lambda: self._executa_acao(), self.extra, self.error)
+  module _core.supygirls_factory line 278
+    traceback.print_exc(file=sys.stderr)
+  module _core.supygirls_factory line 295
+    exec(self.code, glob)  # dict(__name__="__main__"))
+  module <module> line 225
+    Jogo().inicia()
+  module <module> line 221
+    self.mesa.inicia()
+  module <module> line 187
+    self.rodada(artefato)
+  module <module> line 194
+    while self.turno():
+  module <module> line 212
+    carta.premia(jogador, len(self.jogadores_ativos))
+  module <module> line 116
+    jogador.recebe(self.valorcota)
+AttributeError: 'Tesouro' object has no attribute 'valorcota'
+'''},
