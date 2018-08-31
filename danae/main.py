@@ -67,8 +67,9 @@ class Sprite(Elemento):
     def __init__(self, img, index=0, tit="", w=50, h=100):
         super().__init__(img, tit=tit, style=dict(
             position="relative", width=w, height="{}px".format(h), overflow="hidden", float="left"))
-        self.img.style.margin = "-{}px 0 0 0".format(index * w)
-        self.img.style.width = "100px"
+        self.img.style.margin = "0px -{}px 0px 0px".format(index * w)
+        self.img.style.width = "150px"
+        self.img.style.maxWidth = "150px"
 
 
 SPRITES = {key: Sprite(img, ind, tit=key) for key, (img, ind) in SPRITES.items()}
@@ -172,9 +173,9 @@ class Jogador(object):
 
 class Mesa(object):
     def __init__(self, jogadores):
-        self.mesa = Cena(TEMPLOTRAS1)
-        self.acampamento = Elemento("", style=dict(left=0, top=0))
-        self.labirinto = Elemento("", style=dict(left=0, top=100))
+        self.mesa = Cena(IMGS["TEMPLOTRAS3"])
+        self.acampamento = Elemento("", style=dict(left=0, top=0, width=800, height="100px"))
+        self.labirinto = Elemento("", style=dict(left=0, top=100, width=800, height="400px"))
         self.perigo = self.salas = []
         self.acampamento.entra(self.mesa)
         self.labirinto.entra(self.mesa)
