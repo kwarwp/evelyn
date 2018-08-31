@@ -81,9 +81,8 @@ class Carta(object):
         self.valor = int(face) if face.isdigit() else 0
         self.elt = SPRITES[face if face.isalpha() else "t{}".format(face)]
 
-    def premia(self, jogadores):
-        if len(jogadores) == 1:
-            jogadores[0].recebe(10 // self.VALOR)
+    def premia(self, jogadores, _):
+        
         return True
 
     def divide(self, jogadores, salas):
@@ -111,18 +110,11 @@ class Artefato(Carta):
             jogadores[0].recebe(10 // self.VALOR)
         return True
 
-    def premia(self, jogadores):
-            
-        return True
-
-    pass
-
 
 class Tesouro(Carta):
-    def premia(self, jogador):
-        for jogador in jogadores:
-            jogador.recebe(self.valor // len(jogadores))
-            self.valor %= len(jogadores)
+    def premia(self, jogador, cota):
+        jogador.recebe(self.valor // cota)
+        self.valor %= cota
         return True
 
     pass
@@ -138,7 +130,7 @@ class Baralho(object):
         shuffle(self.cartas)
 
     def descarta(self):
-        return self.cartas.pop()
+        return self.cartas.pop() if self.cartas else None
 
     def monta_baralho(self):
         self.cartas = []
@@ -209,6 +201,8 @@ class Mesa(object):
 
     def turno(self):
         carta_corrente = self.baralho.descarta()
+        if not carta_corrente:
+            return False
         jogadores_saindo = []
         self.apresenta(carta_corrente)
 
@@ -217,7 +211,7 @@ class Mesa(object):
                 self.jogadores_ativos.remove(jogador)
                 jogadores_saindo.append(jogador)
             for carta in self.salas:
-                carta.premia(jogador)
+                carta.premia(jogador, len(self.jogadores_ativos))
         return self.jogadores_ativos and carta_corrente.divide(jogadores_saindo, self.salas)
 
 
