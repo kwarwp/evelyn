@@ -381,3 +381,29 @@ AttributeError: 'Tesouro' object has no attribute 'valorcota'
     return self.cartas.pop()
 IndexError: pop index out of range
 '''},
+{'date': 'Thu Aug 30 2018 21:19:19.363 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''Traceback (most recent call last):
+  module _core.main line 160
+    dialog.action(lambda *_: self.start()
+  module _core.supygirls_factory line 135
+    self.act(self, lambda *_: self.hide() or extra()) if self.act else None
+  module _core.supygirls_factory line 306
+    return self._first_response(lambda: self._executa_acao(), self.extra, self.error)
+  module _core.supygirls_factory line 278
+    traceback.print_exc(file=sys.stderr)
+  module _core.supygirls_factory line 295
+    exec(self.code, glob)  # dict(__name__="__main__"))
+  module <module> line 227
+    Jogo().inicia()
+  module <module> line 223
+    self.mesa.inicia()
+  module <module> line 187
+    self.rodada(artefato)
+  module <module> line 194
+    while self.turno():
+  module <module> line 214
+    carta.premia(jogador, len(self.jogadores_ativos))
+  module <module> line 116
+    jogador.recebe(self.valor // cota)
+ZeroDivisionError: division by zero
+'''},
