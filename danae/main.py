@@ -28,7 +28,7 @@ STYLE["width"]= 800
 
 DESISTE = True
 PERIGOS = "aranha mumia desabe fogo cobra".split()
-ARTEFATOS = "estatua vaso colar broche adorno".split()
+ARTEFATOS = "estatua vaso broche colar adorno".split()
 TESOUROS = "1 2 3 4 5 7 9 11 13 14 15 17".split()
 JOGADORES = "Roxanne Stacy Libby Sara Kellee Courtney".split()
 ACTIVE = "http://activufrj.nce.ufrj.br/studio/"
@@ -57,8 +57,8 @@ SPRITES = dict(
     fogo=(IMGS["MOSTROS1"], 0), mumia=(IMGS["MOSTROS1"], 1),
     estatua=(IMGS["ARTEFATOS1"], 0), vaso=(IMGS["ARTEFATOS1"], 1), broche=(IMGS["ARTEFATOS1"], 3),
     colar=(IMGS["ARTEFATOS2"], 0), adorno=(IMGS["ARTEFATOS2"], 1),
-    t1=(IMGS["PEDRAS1"], 0), t2=(IMGS["PEDRAS1"], 1), t3=(IMGS["PEDRAS1"], 2), t4=(IMGS["PEDRAS2"], 0),
-    t5=(IMGS["PEDRAS2"], 1), t7=(IMGS["PEDRAS2"], 2), t9=(IMGS["PEDRAS3"], 0), t11=(IMGS["PEDRAS3"], 1),
+    t1=(IMGS["PEDRAS1"], 0), t2=(IMGS["PEDRAS1"], 1), t4=(IMGS["PEDRAS1"], 2), t5=(IMGS["PEDRAS2"], 0),
+    t7=(IMGS["PEDRAS2"], 1), t3=(IMGS["PEDRAS2"], 2), t9=(IMGS["PEDRAS3"], 0), t11=(IMGS["PEDRAS3"], 1),
     t13=(IMGS["PEDRAS3"], 2), t14=(IMGS["PEDRAS4"], 0), t15=(IMGS["PEDRAS4"], 1), t17=(IMGS["PEDRAS4"], 2),
 )
 
@@ -149,13 +149,16 @@ class Baralho(object):
 class Jogador(object):
     def __init__(self, jogador, mesa):
         self.sprite = Sprite(IMGS["CARTASENTRAESAI"], 0, tit=jogador)
-        self.sprite.entra(mesa.acampamento)
+        self.entra(mesa.acampamento)
         self.jogador = "from {mod}.main import {mod}, self.jogada = {mod}".format(mod=jogador)
         self.jogada, self.joias, self.mesa = None, 0, mesa
         self.chance = list(range(20))
         shuffle(self.chance)
 
     pass
+
+    def entra(self, cena):
+        cena.elt <= self.sprite.elt
 
     def recebe(self, joias):
         self.joias += joias
