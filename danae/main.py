@@ -22,6 +22,7 @@
 .. moduleauthor:: Carlo Oliveira <carlo@nce.ufrj.br>
 """
 from random import shuffle
+from browser import timer
 
 from _spy.vitollino.main import Elemento, Cena, STYLE
 STYLE["width"]= 800
@@ -71,6 +72,10 @@ class Sprite(Elemento):
         self.img.style.marginLeft = "-{}px".format(index * w)
         self.img.style.width = "210px"
         self.img.style.maxWidth = "210px"
+        self.w = w
+    def face(self, index):
+        self.img.style.marginLeft = "-{}px".format(index * self.w)
+        
 
 
 class Carta(object):
@@ -95,13 +100,14 @@ class Carta(object):
         cena.elt <= self.elt.elt
 
     def __eq__(self, carta):
+        print("carta.face == self.face",carta.face == self.face, carta.face, self.face)
         return carta.face == self.face
 
 
 class Perigo(Carta):
     def divide(self, jogadores, salas):
         _ = jogadores
-        return self.face not in salas
+        return self not in salas
 
 
 class Artefato(Carta):
@@ -144,22 +150,28 @@ class Baralho(object):
 class Jogador(object):
     def __init__(self, jogador, mesa):
         self.sprite = Sprite(IMGS["CARTASENTRAESAI"], 1, tit=jogador)
-        self.entra(mesa.acampamento)
+        self.cena = mesa.acampamento
+        self.entra(self.cena)
         self.jogador = "from {mod}.main import {mod}, self.jogada = {mod}".format(mod=jogador)
         self.jogada, self.joias, self.mesa = None, 0, mesa
-        self.chance = list(range(20))
+        self.chance = list(range(12))
         shuffle(self.chance)
 
     pass
 
     def entra(self, cena):
-        cena.elt <= self.sprite.elt
+        self.cena.elt <= self.sprite.elt
 
     def recebe(self, joias):
         self.joias += joias
 
     def joga(self):
-        return self.chance.pop() if self.chance else 0
+        desiste = self.chance.pop() < 1 if self.chance else True
+        if desiste:
+            self.sprite.face(0)
+        return desiste
+        
+        
 
     def _joga(self):
         try:
@@ -185,6 +197,9 @@ class Mesa(object):
 
     def inicia(self):
         self.mesa.vai()
+        self.rodada(ARTEFATOS[0])
+    def inicia_(self):
+        self.mesa.vai()
         for artefato in ARTEFATOS: #[:1]:
             self.baralho.extend([Artefato(artefato)])
         while self.baralho.cartas:
@@ -200,6 +215,8 @@ class Mesa(object):
         self.baralho.extend(self.salas)
         self.baralho.embaralha(artefato)
         self.perigo = self.salas = []
+        self.interval = timer.set_interval(self.turno, 500)
+        return
         while self.turno():
             pass
         self.salas = [carta for carta in self.salas if not isinstance(carta, Artefato)]
@@ -213,6 +230,7 @@ class Mesa(object):
         if not carta_corrente:
             return False
         jogadores_saindo = []
+        perigou = carta_corrente.divide(jogadores_saindo, self.salas)
         self.apresenta(carta_corrente)
 
         for jogador in self.jogadores_ativos:
@@ -221,7 +239,8 @@ class Mesa(object):
             if jogador.joga() == DESISTE:
                 self.jogadores_ativos.remove(jogador)
                 jogadores_saindo.append(jogador)
-        return self.jogadores_ativos and carta_corrente.divide(jogadores_saindo, self.salas)
+        if not ( self.jogadores_ativos and perigou):
+            timer.clear_interval(self.interval)
 
 
 class Jogo:
