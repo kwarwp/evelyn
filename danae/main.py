@@ -29,7 +29,7 @@ STYLE["width"]= 800
 DESISTE = True
 PERIGOS = "aranha mumia desabe fogo cobra".split()
 ARTEFATOS = "estatua vaso colar broche adorno".split()
-TESOUROS = "1 2 3 4 5 7 9 11 13".split()
+TESOUROS = "1 2 3 4 5 7 9 11 13 14 15 17".split()
 JOGADORES = "Roxanne Stacy Libby Sara Kellee Courtney".split()
 ACTIVE = "http://activufrj.nce.ufrj.br/studio/"
 POS = "?disp=inline&size=G"
@@ -55,21 +55,21 @@ IMGS = {key: ACTIVE + img + POS for key, img in IMGS.items()}
 SPRITES = dict(
     aranha=(IMGS["MOSTROS1"], 0), mumia=(IMGS["MOSTROS1"], 1), desabe=(IMGS["MOSTROS"], 0),
     fogo=(IMGS["MOSTROS"], 0), cobra=(IMGS["MOSTROS"], 0),
-    estatua=(IMGS["ARTEFATOS1"], 0), vaso=(IMGS["ARTEFATOS1"], 1), colar=(IMGS["ARTEFATOS2"], 0),
-    broche=(IMGS["ARTEFATOS2"], 1), adorno=(IMGS["ARTEFATOS2"], 2),
+    estatua=(IMGS["ARTEFATOS1"], 0), vaso=(IMGS["ARTEFATOS1"], 1), colar=(IMGS["ARTEFATOS1"], 3),
+    broche=(IMGS["ARTEFATOS2"], 0), adorno=(IMGS["ARTEFATOS2"], 1),
     t1=(IMGS["PEDRAS1"], 0), t2=(IMGS["PEDRAS1"], 1), t3=(IMGS["PEDRAS1"], 2), t4=(IMGS["PEDRAS2"], 0),
     t5=(IMGS["PEDRAS2"], 1), t7=(IMGS["PEDRAS2"], 2), t9=(IMGS["PEDRAS3"], 0), t11=(IMGS["PEDRAS3"], 1),
-    t13=(IMGS["PEDRAS3"], 2),
+    t13=(IMGS["PEDRAS3"], 2), t14=(IMGS["PEDRAS4"], 0), t15=(IMGS["PEDRAS4"], 1), t17=(IMGS["PEDRAS4"], 2),
 )
 
 
 class Sprite(Elemento):
-    def __init__(self, img, index=0, tit="", w=50, h=100):
-        super().__init__(img, tit=tit, style=dict(
+    def __init__(self, img, index=0, tit="", w=70, h=120):
+        super().__init__(img, tit=tit, style=dict(margin="6px",
             position="relative", width=w, height="{}px".format(h), overflow="hidden", float="left"))
         self.img.style.margin = "0px -{}px 0px 0px".format(index * w)
-        self.img.style.width = "150px"
-        self.img.style.maxWidth = "150px"
+        self.img.style.width = "210px"
+        self.img.style.maxWidth = "210px"
 
 
 SPRITES = {key: Sprite(img, ind, tit=key) for key, (img, ind) in SPRITES.items()}
@@ -174,8 +174,8 @@ class Jogador(object):
 class Mesa(object):
     def __init__(self, jogadores):
         self.mesa = Cena(IMGS["TEMPLOTRAS3"])
-        self.acampamento = Elemento("", style=dict(left=0, top=0, width=800, height="100px"))
-        self.labirinto = Elemento("", style=dict(left=0, top=100, width=800, height="400px"))
+        self.acampamento = Elemento("", style=dict(left=0, top=0, width=800, height="130px"))
+        self.labirinto = Elemento("", style=dict(left=0, top=140, width=800, height="400px"))
         self.perigo = self.salas = []
         self.acampamento.entra(self.mesa)
         self.labirinto.entra(self.mesa)
@@ -187,7 +187,15 @@ class Mesa(object):
 
     def inicia(self):
         self.mesa.vai()
-        for artefato in ARTEFATOS:
+        for artefato in ARTEFATOS: #[:1]:
+
+            self.baralho.extend([Artefato(artefato)])
+        while self.baralho.carta:
+            self.apresenta(self.baralho.carta.pop())
+
+    def _inicia(self):
+        self.mesa.vai()
+        for artefato in ARTEFATOS: #[:1]:
             self.rodada(artefato)
 
     def rodada(self, artefato):
