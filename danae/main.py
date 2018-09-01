@@ -29,7 +29,7 @@ STYLE["width"]= 800
 DESISTE = True
 PERIGOS = "aranha mumia desabe fogo cobra".split()
 ARTEFATOS = "estatua vaso broche colar adorno".split()
-TESOUROS = "1 2 3 4 5 7 9 11 13 14 15 17".split()
+TESOUROS = "1 2 3 3 4 5 7 9 9 11 13 14 14 15 17".split()
 JOGADORES = "Roxanne Stacy Libby Sara Kellee Courtney".split()
 ACTIVE = "http://activufrj.nce.ufrj.br/studio/"
 POS = "?disp=inline&size=G"
@@ -55,7 +55,7 @@ IMGS = {key: ACTIVE + img + POS for key, img in IMGS.items()}
 SPRITES = dict(
     desabe=(IMGS["MOSTROS"], 0), aranha=(IMGS["MOSTROS"], 1), cobra=(IMGS["MOSTROS"], 2),
     fogo=(IMGS["MOSTROS1"], 0), mumia=(IMGS["MOSTROS1"], 1),
-    estatua=(IMGS["ARTEFATOS1"], 0), vaso=(IMGS["ARTEFATOS1"], 1), broche=(IMGS["ARTEFATOS1"], 3),
+    estatua=(IMGS["ARTEFATOS1"], 0), vaso=(IMGS["ARTEFATOS1"], 1), broche=(IMGS["ARTEFATOS1"], 2),
     colar=(IMGS["ARTEFATOS2"], 0), adorno=(IMGS["ARTEFATOS2"], 1),
     t1=(IMGS["PEDRAS1"], 0), t2=(IMGS["PEDRAS1"], 1), t4=(IMGS["PEDRAS1"], 2), t5=(IMGS["PEDRAS2"], 0),
     t7=(IMGS["PEDRAS2"], 1), t3=(IMGS["PEDRAS2"], 2), t9=(IMGS["PEDRAS3"], 0), t11=(IMGS["PEDRAS3"], 1),
@@ -139,6 +139,8 @@ class Baralho(object):
         self.cartas = []
         for perigo in PERIGOS:
             self.cartas.append(Perigo(face=perigo))
+        for perigo in PERIGOS:
+            self.cartas.append(Perigo(face=perigo))
         for tesouro in TESOUROS:
             self.cartas.append(Tesouro(face=tesouro))
 
@@ -191,7 +193,6 @@ class Mesa(object):
     def inicia(self):
         self.mesa.vai()
         for artefato in ARTEFATOS: #[:1]:
-
             self.baralho.extend([Artefato(artefato)])
         while self.baralho.cartas:
             self.apresenta(self.baralho.cartas.pop())
