@@ -506,3 +506,10 @@ AttributeError: 'Baralho' object has no attribute 'carta'
     while self.baralho.carta:
 AttributeError: 'Baralho' object has no attribute 'carta'
 '''},
+{'date': 'Sat Sep 01 2018 13:06:10.355 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 61
+  t4=(IMGS["PEDRAS2"], 1), t3=(IMGS["PEDRAS2"], 2), t9=(IMGS["PEDRAS3"], 0), t11=(IMGS["PEDRAS3"], 1),
+    ^
+SyntaxError: keyword argument repeated
+'''},
