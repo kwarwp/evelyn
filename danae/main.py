@@ -235,11 +235,13 @@ class Mesa(object):
         self.mesa.vai()
         self.acampamento.entra(self.mesa)
         self.labirinto.entra(self.mesa)
+        self.labirinto.elt.html = ''
         self.jogadores_ativos = self.jogadores[:]
         self.baralho.extend(self.salas)
         self.baralho.embaralha(artefato)
         self.perigo = self.salas = []
         self.interval = timer.set_interval(self.turno, 500)
+        self.rodada_corrente += 1
         return
         while self.turno():
             pass
@@ -265,6 +267,8 @@ class Mesa(object):
                 jogadores_saindo.append(jogador)
         if not ( self.jogadores_ativos and perigou):
             timer.clear_interval(self.interval)
+            if self.rodada_corrente < 5:
+                timer.set_timeout(self.rodada, 2000)
 
 
 class Jogo:
