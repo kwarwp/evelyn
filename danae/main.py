@@ -61,6 +61,7 @@ SPRITES = dict(
     t7=(IMGS["PEDRAS2"], 1), t3=(IMGS["PEDRAS2"], 2), t9=(IMGS["PEDRAS3"], 0), t11=(IMGS["PEDRAS3"], 1),
     t13=(IMGS["PEDRAS3"], 2), t14=(IMGS["PEDRAS4"], 0), t15=(IMGS["PEDRAS4"], 1), t17=(IMGS["PEDRAS4"], 2),
 )
+SPRITES = {key: dict(img=img, index=ind, tit=key) for key, (img, ind) in SPRITES.items()}
 
 
 class Sprite(Elemento):
@@ -70,10 +71,6 @@ class Sprite(Elemento):
         self.img.style.marginLeft = "-{}px".format(index * w)
         self.img.style.width = "210px"
         self.img.style.maxWidth = "210px"
-
-
-# SPRITES = {key: Sprite(img, ind, tit=key) for key, (img, ind) in SPRITES.items()}
-SPRITES = {key: dict(img=img, index=ind, tit=key) for key, (img, ind) in SPRITES.items()}
 
 
 class Carta(object):
@@ -86,7 +83,6 @@ class Carta(object):
         self.elt = Sprite(**SPRITES[face if face.isalpha() else "t{}".format(face)])
 
     def premia(self, jogadores, _):
-        
         return True
 
     def divide(self, jogadores, salas):
@@ -120,8 +116,6 @@ class Tesouro(Carta):
         jogador.recebe(self.valor // cota)
         self.valor %= cota
         return True
-
-    pass
 
 
 class Baralho(object):
