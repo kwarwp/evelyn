@@ -520,3 +520,29 @@ SyntaxError: keyword argument repeated
   ^
 IndentationError: expected an indented block
 '''},
+{'date': 'Sat Sep 01 2018 18:28:25.38 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''Traceback (most recent call last):
+  module _core.main line 160
+    dialog.action(lambda *_: self.start()
+  module _core.supygirls_factory line 135
+    self.act(self, lambda *_: self.hide() or extra()) if self.act else None
+  module _core.supygirls_factory line 306
+    return self._first_response(lambda: self._executa_acao(), self.extra, self.error)
+  module _core.supygirls_factory line 278
+    traceback.print_exc(file=sys.stderr)
+  module _core.supygirls_factory line 295
+    exec(self.code, glob)  # dict(__name__="__main__"))
+  module <module> line 270
+    Jogo().inicia()
+  module <module> line 263
+    self.mesa = Mesa(jogadores)
+  module <module> line 201
+    self.mesa = Cenario(IMGS["TEMPLOTRAS3"], 0, 800)
+  module <module> line 82
+    super().__init__(img, style=dict(
+  module _spy.vitollino.main line 771
+    Cena.c(**kwargs)
+  module _spy.vitollino.main line 814
+    imagem, kwargs = (imagem, {}) if isinstance(imagem, str) \
+KeyError: img
+'''},
