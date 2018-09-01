@@ -32,6 +32,7 @@ PERIGOS = "aranha mumia desabe fogo cobra".split()
 ARTEFATOS = "estatua vaso broche colar adorno".split()
 TESOUROS = "1 2 3 3 4 5 7 9 9 11 13 14 14 15 17".split()
 JOGADORES = "Roxanne Stacy Libby Sara Kellee Courtney".split()
+SPLASH = "https://activufrj.nce.ufrj.br/studio/Introducao_a_Computacao/Untitled_20180828_105833-0.jpg?disp=inline&size=G"
 ACTIVE = "http://activufrj.nce.ufrj.br/studio/"
 POS = "?disp=inline&size=G"
 TEMPLOTRAS1 = ACTIVE + "Introducao_a_Computacao/Untitled_20180828_110147.jpg" + POS
@@ -200,15 +201,16 @@ class Jogador(object):
 class Mesa(object):
     def __init__(self, jogadores):
         self.rodada_corrente = 0
+        Cena(SPLASH).vai()
         self.fases = [Cenario(IMGS["TEMPLOTRAS1"], 1),Cenario(IMGS["TEMPLOTRAS1"], 0),
         Cenario(IMGS["TEMPLOTRAS2"], 1),Cenario(IMGS["TEMPLOTRAS2"], 0),Cenario(IMGS["TEMPLOTRAS3"], 0, 800)]
         self.baralho = Baralho()
-        self.jogadores_ativos = self.jogadores = [Jogador(jogador, self) for jogador in jogadores]
         #self.mesa = Cena(IMGS["TEMPLOTRAS3"])
         self.acampamento = Elemento("", style=dict(left=0, top=0, width=800, height="130px"))
         self.labirinto = Elemento("", style=dict(left=0, top=140, width=800, height="400px"))
         self.acampamento.nome = "Acampa"
         self.labirinto.nome = "Explora"
+        self.jogadores_ativos = self.jogadores = [Jogador(jogador, self) for jogador in jogadores]
         self.perigo = self.salas = []
         # self.inicia()
 
@@ -228,7 +230,7 @@ class Mesa(object):
             self.rodada(artefato)
 
     def rodada(self):
-        artefato = ARTEFATO[self.rodada_corrente]
+        artefato = ARTEFATOS[self.rodada_corrente]
         self.mesa = self.fases[self.rodada_corrente] #)
         self.mesa.vai()
         self.acampamento.entra(self.mesa)
