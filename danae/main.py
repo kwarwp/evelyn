@@ -35,10 +35,10 @@ ACTIVE = "http://activufrj.nce.ufrj.br/studio/"
 POS = "?disp=inline&size=G"
 TEMPLOTRAS1 = ACTIVE + "Introducao_a_Computacao/Untitled_20180828_110147.jpg" + POS
 IMGS = dict(
-    PEDRAS1="Introducao_a_Computacao/Untitled_20180828_102220.jpg",
-    PEDRAS2="Introducao_a_Computacao/Untitled_20180828_105412.jpg",
+    PEDRAS4="Introducao_a_Computacao/Untitled_20180828_102220.jpg",
+    PEDRAS1="Introducao_a_Computacao/Untitled_20180828_105412.jpg",
     PEDRAS3="Introducao_a_Computacao/Untitled_20180828_105419.jpg",
-    PEDRAS4="Introducao_a_Computacao/Untitled_20180828_105624.jpg",
+    PEDRAS2="Introducao_a_Computacao/Untitled_20180828_105624.jpg",
     TEMPLOTRAS1="Introducao_a_Computacao/Untitled_20180828_110147.jpg",
     TEMPLOTRAS2="Introducao_a_Computacao/Untitled_20180828_110148.jpg",
     TEMPLOTRAS3="Introducao_a_Computacao/Untitled_20180828_110145.jpg",
@@ -47,16 +47,16 @@ IMGS = dict(
     CARTASTRAS="Introducao_a_Computacao/Untitled_20180828_105833-2.jpg",
     ARTEFATOS1="Introducao_a_Computacao/Untitled_20180828_105529.jpg",
     ARTEFATOS2="Introducao_a_Computacao/Untitled_20180828_105528.jpg",
-    MOSTROS1="Introducao_a_Computacao/Untitled_20180828_105623.jpg",
-    MOSTROS="Introducao_a_Computacao/Untitled_20180828_105627.jpg"
+    MOSTROS="Introducao_a_Computacao/Untitled_20180828_105623.jpg",
+    MOSTROS1="Introducao_a_Computacao/Untitled_20180828_105627.jpg"
 
 )
 IMGS = {key: ACTIVE + img + POS for key, img in IMGS.items()}
 SPRITES = dict(
-    aranha=(IMGS["MOSTROS1"], 0), mumia=(IMGS["MOSTROS1"], 1), desabe=(IMGS["MOSTROS"], 0),
-    fogo=(IMGS["MOSTROS"], 0), cobra=(IMGS["MOSTROS"], 0),
-    estatua=(IMGS["ARTEFATOS1"], 0), vaso=(IMGS["ARTEFATOS1"], 1), colar=(IMGS["ARTEFATOS1"], 3),
-    broche=(IMGS["ARTEFATOS2"], 0), adorno=(IMGS["ARTEFATOS2"], 1),
+    desabe=(IMGS["MOSTROS"], 0), aranha=(IMGS["MOSTROS"], 1), cobra=(IMGS["MOSTROS"], 2),
+    fogo=(IMGS["MOSTROS1"], 0), mumia=(IMGS["MOSTROS1"], 1),
+    estatua=(IMGS["ARTEFATOS1"], 0), vaso=(IMGS["ARTEFATOS1"], 1), broche=(IMGS["ARTEFATOS1"], 3),
+    colar=(IMGS["ARTEFATOS2"], 0), adorno=(IMGS["ARTEFATOS2"], 1),
     t1=(IMGS["PEDRAS1"], 0), t2=(IMGS["PEDRAS1"], 1), t3=(IMGS["PEDRAS1"], 2), t4=(IMGS["PEDRAS2"], 0),
     t5=(IMGS["PEDRAS2"], 1), t7=(IMGS["PEDRAS2"], 2), t9=(IMGS["PEDRAS3"], 0), t11=(IMGS["PEDRAS3"], 1),
     t13=(IMGS["PEDRAS3"], 2), t14=(IMGS["PEDRAS4"], 0), t15=(IMGS["PEDRAS4"], 1), t17=(IMGS["PEDRAS4"], 2),
@@ -67,7 +67,7 @@ class Sprite(Elemento):
     def __init__(self, img, index=0, tit="", w=70, h=120):
         super().__init__(img, tit=tit, style=dict(margin="6px",
             position="relative", width=w, height="{}px".format(h), overflow="hidden", float="left"))
-        self.img.style.margin = "0px -{}px 0px 0px".format(index * w)
+        self.img.style.marginLeft = "-{}px".format(index * w)
         self.img.style.width = "210px"
         self.img.style.maxWidth = "210px"
 
@@ -190,8 +190,8 @@ class Mesa(object):
         for artefato in ARTEFATOS: #[:1]:
 
             self.baralho.extend([Artefato(artefato)])
-        while self.baralho.carta:
-            self.apresenta(self.baralho.carta.pop())
+        while self.baralho.cartas:
+            self.apresenta(self.baralho.cartas.pop())
 
     def _inicia(self):
         self.mesa.vai()
