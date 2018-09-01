@@ -26,7 +26,7 @@ from random import shuffle
 from browser import timer
 
 # from _spy.vitollino.main import Elemento, Cena, Codigo
-from vitollino.main import Elemento, Cena, Codigo, STYLE
+from _spy.vitollino.main import Elemento, Cena, Codigo, STYLE
 
 STYLE["width"] = 800
 
@@ -79,6 +79,9 @@ class Sprite(Elemento):
         self.nome = tit
         "210px"
         self.w = w
+
+    def __le__(self, item):
+        self.elt <= item.elt
 
     def face(self, index):
         self.img.style.marginLeft = "-{}px".format(index * self.w)
