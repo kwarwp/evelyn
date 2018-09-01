@@ -744,3 +744,10 @@ AttributeError: 'module' object has no attribute '__setitem__'
     cena <= self
 TypeError: '<=' not supported between instances of 'Sprite' and 'Codigo'
 '''},
+{'date': 'Sat Sep 01 2018 20:47:58.97 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 28
+  from vitollino.main import Elemento, Cena, Codigo, Texto, , STYLE
+                                                            ^
+SyntaxError: trailing comma not allowed without surrounding parentheses
+'''},
