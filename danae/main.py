@@ -149,7 +149,7 @@ class Baralho(object):
 
 class Jogador(object):
     def __init__(self, jogador, mesa):
-        self.sprite = Sprite(IMGS["CARTASENTRAESAI"], 0, tit=jogador)
+        self.sprite = Sprite(IMGS["CARTASENTRAESAI"], 1, tit=jogador)
         self.entra(mesa.acampamento)
         self.jogador = "from {mod}.main import {mod}, self.jogada = {mod}".format(mod=jogador)
         self.jogada, self.joias, self.mesa = None, 0, mesa
