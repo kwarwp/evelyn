@@ -513,3 +513,10 @@ AttributeError: 'Baralho' object has no attribute 'carta'
     ^
 SyntaxError: keyword argument repeated
 '''},
+{'date': 'Sat Sep 01 2018 16:33:55.370 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 167
+  self.sprite = self.sai
+  ^
+IndentationError: expected an indented block
+'''},
