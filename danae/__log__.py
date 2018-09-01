@@ -459,3 +459,10 @@ IndexError: pop index out of range
     self.elt = SPRITES[face if face.isalpha() else "t{}".format(face)]
 KeyError: t14
 '''},
+{'date': 'Sat Sep 01 2018 12:23:56.435 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 62
+  t13=(IMGS["PEDRAS3"], 2), t7=(IMGS["PEDRAS4"], 0), t9=(IMGS["PEDRAS4"], 1), t11=(IMGS["PEDRAS4"], 2),
+                              ^
+SyntaxError: keyword argument repeated
+'''},
