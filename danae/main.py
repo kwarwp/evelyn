@@ -22,17 +22,21 @@
 .. moduleauthor:: Carlo Oliveira <carlo@nce.ufrj.br>
 """
 from random import shuffle
+
 from browser import timer
 
-from _spy.vitollino.main import Elemento, Cena, STYLE
-STYLE["width"]= 800
+# from _spy.vitollino.main import Elemento, Cena, Codigo
+from vitollino.main import Elemento, Cena, Codigo, STYLE
+
+STYLE["width"] = 800
 
 DESISTE = True
 PERIGOS = "aranha mumia desabe fogo cobra".split()
 ARTEFATOS = "estatua vaso broche colar adorno".split()
 TESOUROS = "1 2 3 3 4 5 7 9 9 11 13 14 14 15 17".split()
-JOGADORES = "Roxanne Stacy Libby Sara Kellee Courtney".split()
-SPLASH = "https://activufrj.nce.ufrj.br/studio/Introducao_a_Computacao/Untitled_20180828_105833-0.jpg?disp=inline&size=G"
+JOGADORES = tuple("Roxanne Stacy Libby Sara Kellee Courtney".split())
+SPLASH = "https://activufrj.nce.ufrj.br/studio/Introducao_a_Computacao/" \
+         "Untitled_20180828_105833-0.jpg?disp=inline&size=G"
 ACTIVE = "http://activufrj.nce.ufrj.br/studio/"
 POS = "?disp=inline&size=G"
 TEMPLOTRAS1 = ACTIVE + "Introducao_a_Computacao/Untitled_20180828_110147.jpg" + POS
@@ -68,21 +72,21 @@ SPRITES = {key: dict(img=img, index=ind, tit=key) for key, (img, ind) in SPRITES
 
 class Sprite(Elemento):
     def __init__(self, img, index=0, tit="", w=70, h=120, delta=210):
-        super().__init__(img, style=dict(position="relative", float="left", 
-            width=w, height="{}px".format(h), overflow="hidden"))
+        super().__init__(img, style=dict(position="relative", float="left", tit=tit,
+                                         width=w, height="{}px".format(h), overflow="hidden"))
         self.img.style.marginLeft = "-{}px".format(index * w)
         self.img.style.width = self.img.style.maxWidth = "{}px".format(delta)
+        self.nome = tit
         "210px"
         self.w = w
+
     def face(self, index):
         self.img.style.marginLeft = "-{}px".format(index * self.w)
 
 
 class Cenario(Cena):
-    def __init__(self, img, index=0, delta=1600, tit="", w=800, h=700):
+    def __init__(self, img, index=0, delta=1600, w=800, h=700):
         super().__init__(img)
-        style=dict(margin="6px",
-            width=w, height="{}px".format(h), overflow="hidden")
         self.elt.style.width = w
         self.elt.style.height = "{}px".format(h)
         self.elt.style.overflow = "hidden"
@@ -91,6 +95,7 @@ class Cenario(Cena):
         self.img.style.width = self.img.style.maxWidth = "{}px".format(delta)
         "210px"
         self.w = w
+
     def face(self, index):
         self.img.style.marginLeft = "-{}px".format(index * self.w)
 
@@ -117,7 +122,7 @@ class Carta(object):
         cena.elt <= self.elt.elt
 
     def __eq__(self, carta):
-        print("carta.face == self.face",carta.face == self.face, carta.face, self.face)
+        print("carta.face == self.face", carta.face == self.face, carta.face, self.face)
         return carta.face == self.face
 
 
@@ -155,7 +160,7 @@ class Baralho(object):
 
     def monta_baralho(self):
         self.cartas = []
-        for perigo in PERIGOS*3:
+        for perigo in PERIGOS * 3:
             self.cartas.append(Perigo(face=perigo))
         for tesouro in TESOUROS:
             self.cartas.append(Tesouro(face=tesouro))
@@ -168,27 +173,32 @@ class Jogador(object):
     def __init__(self, jogador, mesa):
         self.sprite = Sprite(IMGS["CARTASENTRAESAI"], 1, tit=jogador)
         self.cena = mesa.acampamento
+        self.mostrador = Codigo("0", "0", self.sprite)
+        self.tesouro = 0
         self.entra(self.cena)
         self.jogador = "from {mod}.main import {mod}, self.jogada = {mod}".format(mod=jogador)
         self.jogada, self.joias, self.mesa = None, 0, mesa
-        self.chance = list(range(12))
+        self.chance = list(range(20))
         shuffle(self.chance)
 
     pass
 
-    def entra(self, cena):
-        self.cena.elt <= self.sprite.elt
+    def entra(self, cena=None):
+        # self.chance = list(range(12))
+        self.joias = 0
+        self.sprite.face(1)
+        cena = cena if cena else self.cena
+        cena.elt <= self.sprite.elt
 
     def recebe(self, joias):
         self.joias += joias
 
     def joga(self):
-        desiste = self.chance.pop() < 1 if self.chance else True
+        desiste = self.chance.pop() < 2 if self.chance else True
         if desiste:
+            self.tesouro += self.joias
             self.sprite.face(0)
         return desiste
-        
-        
 
     def _joga(self):
         try:
@@ -201,11 +211,14 @@ class Jogador(object):
 class Mesa(object):
     def __init__(self, jogadores):
         self.rodada_corrente = 0
+        self.interval = None
         Cena(SPLASH).vai()
-        self.fases = [Cenario(IMGS["TEMPLOTRAS1"], 1),Cenario(IMGS["TEMPLOTRAS1"], 0),
-        Cenario(IMGS["TEMPLOTRAS2"], 1),Cenario(IMGS["TEMPLOTRAS2"], 0),Cenario(IMGS["TEMPLOTRAS3"], 0, 800)]
+        self.fases = [Cenario(IMGS["TEMPLOTRAS1"], 1), Cenario(IMGS["TEMPLOTRAS1"], 0),
+                      Cenario(IMGS["TEMPLOTRAS2"], 1), Cenario(IMGS["TEMPLOTRAS2"], 0),
+                      Cenario(IMGS["TEMPLOTRAS3"], 0, 800)]
+        self.mesa = self.fases[self.rodada_corrente]
         self.baralho = Baralho()
-        #self.mesa = Cena(IMGS["TEMPLOTRAS3"])
+        # self.mesa = Cena(IMGS["TEMPLOTRAS3"])
         self.acampamento = Elemento("", style=dict(left=0, top=0, width=800, height="130px"))
         self.labirinto = Elemento("", style=dict(left=0, top=140, width=800, height="400px"))
         self.acampamento.nome = "Acampa"
@@ -216,36 +229,38 @@ class Mesa(object):
 
     def inicia(self):
         timer.set_timeout(self.rodada, 2000)
-        #self.rodada(ARTEFATOS[0])
+        # self.rodada(ARTEFATOS[0])
+
     def inicia_(self):
         self.mesa.vai()
-        for artefato in ARTEFATOS: #[:1]:
+        for artefato in ARTEFATOS:  # [:1]:
             self.baralho.extend([Artefato(artefato)])
         while self.baralho.cartas:
             self.apresenta(self.baralho.cartas.pop())
 
     def _inicia(self):
         self.mesa.vai()
-        for artefato in ARTEFATOS: #[:1]:
-            self.rodada(artefato)
+        for _ in ARTEFATOS:  # [:1]:
+            self.rodada()
 
     def rodada(self):
         artefato = ARTEFATOS[self.rodada_corrente]
-        self.mesa = self.fases[self.rodada_corrente] #)
+        self.mesa = self.fases[self.rodada_corrente]  # )
         self.mesa.vai()
         self.acampamento.entra(self.mesa)
         self.labirinto.entra(self.mesa)
         self.labirinto.elt.html = ''
         self.jogadores_ativos = self.jogadores[:]
+        [jogador.entra() for jogador in self.jogadores]
         self.baralho.extend(self.salas)
         self.baralho.embaralha(artefato)
         self.perigo = self.salas = []
         self.interval = timer.set_interval(self.turno, 500)
         self.rodada_corrente += 1
         return
-        while self.turno():
-            pass
-        self.salas = [carta for carta in self.salas if not isinstance(carta, Artefato)]
+        # while self.turno():
+        #     pass
+        # self.salas = [carta for carta in self.salas if not isinstance(carta, Artefato)]
 
     def apresenta(self, carta):
         self.salas.append(carta)
@@ -265,7 +280,7 @@ class Mesa(object):
             if jogador.joga() == DESISTE:
                 self.jogadores_ativos.remove(jogador)
                 jogadores_saindo.append(jogador)
-        if not ( self.jogadores_ativos and perigou):
+        if not (self.jogadores_ativos and perigou):
             timer.clear_interval(self.interval)
             if self.rodada_corrente < 5:
                 timer.set_timeout(self.rodada, 2000)
