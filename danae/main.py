@@ -72,7 +72,8 @@ class Sprite(Elemento):
         self.img.style.maxWidth = "210px"
 
 
-SPRITES = {key: Sprite(img, ind, tit=key) for key, (img, ind) in SPRITES.items()}
+# SPRITES = {key: Sprite(img, ind, tit=key) for key, (img, ind) in SPRITES.items()}
+SPRITES = {key: dict(img=img, index=ind, tit=key) for key, (img, ind) in SPRITES.items()}
 
 
 class Carta(object):
@@ -82,7 +83,7 @@ class Carta(object):
     def __init__(self, face):
         self.face = face
         self.valor = int(face) if face.isdigit() else 0
-        self.elt = SPRITES[face if face.isalpha() else "t{}".format(face)]
+        self.elt = Sprite(**SPRITES[face if face.isalpha() else "t{}".format(face)])
 
     def premia(self, jogadores, _):
         
@@ -137,9 +138,7 @@ class Baralho(object):
 
     def monta_baralho(self):
         self.cartas = []
-        for perigo in PERIGOS:
-            self.cartas.append(Perigo(face=perigo))
-        for perigo in PERIGOS:
+        for perigo in PERIGOS*3:
             self.cartas.append(Perigo(face=perigo))
         for tesouro in TESOUROS:
             self.cartas.append(Tesouro(face=tesouro))
