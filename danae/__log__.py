@@ -718,3 +718,29 @@ AttributeError: 'Sprite' object has no attribute 'nome'
     STYLE["width"] = 800
 AttributeError: 'module' object has no attribute '__setitem__'
 '''},
+{'date': 'Sat Sep 01 2018 20:16:17.621 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''Traceback (most recent call last):
+  module _core.main line 160
+    dialog.action(lambda *_: self.start()
+  module _core.supygirls_factory line 135
+    self.act(self, lambda *_: self.hide() or extra()) if self.act else None
+  module _core.supygirls_factory line 306
+    return self._first_response(lambda: self._executa_acao(), self.extra, self.error)
+  module _core.supygirls_factory line 278
+    traceback.print_exc(file=sys.stderr)
+  module _core.supygirls_factory line 295
+    exec(self.code, glob)  # dict(__name__="__main__"))
+  module <module> line 298
+    Jogo().inicia()
+  module <module> line 291
+    self.mesa = Mesa(jogadores)
+  module <module> line 226
+    self.jogadores_ativos = self.jogadores = [Jogador(jogador, self) for jogador in jogadores]
+  module <module> line 176
+    self.mostrador = Codigo("0", "0", self.sprite)
+  module _spy.vitollino.main line 516
+    _ = self.entra(cena) if cena and (cena != INVENTARIO) else None
+  module _spy.vitollino.main line 459
+    cena <= self
+TypeError: '<=' not supported between instances of 'Sprite' and 'Codigo'
+'''},
