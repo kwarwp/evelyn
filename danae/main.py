@@ -67,7 +67,7 @@ SPRITES = {key: dict(img=img, index=ind, tit=key) for key, (img, ind) in SPRITES
 
 class Sprite(Elemento):
     def __init__(self, img, index=0, tit="", w=70, h=120, delta=210):
-        super().__init__(img, style=dict(
+        super().__init__(img, style=dict(position="relative", float="left", 
             width=w, height="{}px".format(h), overflow="hidden"))
         self.img.style.marginLeft = "-{}px".format(index * w)
         self.img.style.width = self.img.style.maxWidth = "{}px".format(delta)
@@ -81,7 +81,7 @@ class Cenario(Cena):
     def __init__(self, img, index=0, delta=1600, tit="", w=800, h=700):
         super().__init__(img)
         style=dict(margin="6px",
-            position="relative", width=w, height="{}px".format(h), overflow="hidden", float="left")
+            width=w, height="{}px".format(h), overflow="hidden")
         self.elt.style.width = w
         self.elt.style.height = "{}px".format(h)
         self.elt.style.overflow = "hidden"
@@ -199,21 +199,22 @@ class Jogador(object):
 
 class Mesa(object):
     def __init__(self, jogadores):
-        self.mesa = Cenario(IMGS["TEMPLOTRAS3"], 0, 800)
+        self.rodada_corrente = 0
+        self.fases = [Cenario(IMGS["TEMPLOTRAS1"], 1),Cenario(IMGS["TEMPLOTRAS1"], 0),
+        Cenario(IMGS["TEMPLOTRAS2"], 1),Cenario(IMGS["TEMPLOTRAS2"], 0),Cenario(IMGS["TEMPLOTRAS3"], 0, 800)]
+        self.baralho = Baralho()
+        self.jogadores_ativos = self.jogadores = [Jogador(jogador, self) for jogador in jogadores]
+        #self.mesa = Cena(IMGS["TEMPLOTRAS3"])
         self.acampamento = Elemento("", style=dict(left=0, top=0, width=800, height="130px"))
         self.labirinto = Elemento("", style=dict(left=0, top=140, width=800, height="400px"))
-        self.perigo = self.salas = []
-        self.acampamento.entra(self.mesa)
-        self.labirinto.entra(self.mesa)
         self.acampamento.nome = "Acampa"
         self.labirinto.nome = "Explora"
-        self.jogadores_ativos = self.jogadores = [Jogador(jogador, self) for jogador in jogadores]
-        self.baralho = Baralho()
+        self.perigo = self.salas = []
         # self.inicia()
 
     def inicia(self):
-        self.mesa.vai()
-        self.rodada(ARTEFATOS[0])
+        timer.set_timeout(self.rodada, 2000)
+        #self.rodada(ARTEFATOS[0])
     def inicia_(self):
         self.mesa.vai()
         for artefato in ARTEFATOS: #[:1]:
@@ -226,7 +227,12 @@ class Mesa(object):
         for artefato in ARTEFATOS: #[:1]:
             self.rodada(artefato)
 
-    def rodada(self, artefato):
+    def rodada(self):
+        artefato = ARTEFATO[self.rodada_corrente]
+        self.mesa = self.fases[self.rodada_corrente] #)
+        self.mesa.vai()
+        self.acampamento.entra(self.mesa)
+        self.labirinto.entra(self.mesa)
         self.jogadores_ativos = self.jogadores[:]
         self.baralho.extend(self.salas)
         self.baralho.embaralha(artefato)
