@@ -66,16 +66,32 @@ SPRITES = {key: dict(img=img, index=ind, tit=key) for key, (img, ind) in SPRITES
 
 
 class Sprite(Elemento):
-    def __init__(self, img, index=0, tit="", w=70, h=120):
-        super().__init__(img, tit=tit, style=dict(margin="6px",
-            position="relative", width=w, height="{}px".format(h), overflow="hidden", float="left"))
+    def __init__(self, img, index=0, tit="", w=70, h=120, delta=210):
+        super().__init__(img, style=dict(
+            width=w, height="{}px".format(h), overflow="hidden"))
         self.img.style.marginLeft = "-{}px".format(index * w)
-        self.img.style.width = "210px"
-        self.img.style.maxWidth = "210px"
+        self.img.style.width = self.img.style.maxWidth = "{}px".format(delta)
+        "210px"
         self.w = w
     def face(self, index):
         self.img.style.marginLeft = "-{}px".format(index * self.w)
-        
+
+
+class Cenario(Cena):
+    def __init__(self, img, index=0, delta=1600, tit="", w=800, h=700):
+        super().__init__(img)
+        style=dict(margin="6px",
+            position="relative", width=w, height="{}px".format(h), overflow="hidden", float="left")
+        self.elt.style.width = w
+        self.elt.style.height = "{}px".format(h)
+        self.elt.style.overflow = "hidden"
+
+        self.img.style.marginLeft = "-{}px".format(index * w)
+        self.img.style.width = self.img.style.maxWidth = "{}px".format(delta)
+        "210px"
+        self.w = w
+    def face(self, index):
+        self.img.style.marginLeft = "-{}px".format(index * self.w)
 
 
 class Carta(object):
@@ -183,7 +199,7 @@ class Jogador(object):
 
 class Mesa(object):
     def __init__(self, jogadores):
-        self.mesa = Cena(IMGS["TEMPLOTRAS3"])
+        self.mesa = Cenario(IMGS["TEMPLOTRAS3"], 0, 800)
         self.acampamento = Elemento("", style=dict(left=0, top=0, width=800, height="130px"))
         self.labirinto = Elemento("", style=dict(left=0, top=140, width=800, height="400px"))
         self.perigo = self.salas = []
