@@ -147,12 +147,12 @@ class Tesouro(Carta):
 
     def __init__(self, face):
         super().__init__(face)
-        self.mostra = Codigo(self.valor, cena=self.elt)
+        #self.mostra = Codigo(self.valor, cena=self.elt)
 
     def premia(self, jogador, cota):
         jogador.recebe(self.valor // cota)
         self.valor %= cota
-        self.mostra._code.html = self.valor
+        #self.mostra._code.html = self.valor
         return True
 
 
@@ -196,7 +196,7 @@ class Jogador(object):
     def entra(self, cena=None):
         # self.chance = list(range(12))
         self.joias = 0
-        self.mostrador._code.html = self.joias
+        self.mostrador._code.html = "{}:{}".format(self.tesouro, self.joias)
         self.sprite.face(1)
         cena = cena if cena else self.cena
         cena.elt <= self.sprite.elt
