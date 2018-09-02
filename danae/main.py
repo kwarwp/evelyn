@@ -116,10 +116,19 @@ class Carta(object):
     def premia(self, jogadores, _):
         return True
 
+    def mostra(self):
+        return True
+        
+    def atualiza_saldo(self, divider)
+        self.valor %= divider
+        self.mostra()
+
     def divide(self, jogadores, salas):
+        divider = len(jogadores)
+        if divider == 0:
+            return True
         for jogador in jogadores:
-            jogador.recebe(self.valor // len(jogadores))
-            self.valor %= len(jogadores)
+            jogador.recebe(self.valor // divider)
         return True
 
     def entra(self, cena):
@@ -147,12 +156,15 @@ class Tesouro(Carta):
 
     def __init__(self, face):
         super().__init__(face)
-        #self.mostra = Codigo(self.valor, cena=self.elt)
+        self.mostrador = Codigo(":{}:".format(self.valor), cena=self.elt)
 
     def premia(self, jogador, cota):
         jogador.recebe(self.valor // cota)
-        self.valor %= cota
-        #self.mostra._code.html = self.valor
+        #self.valor %= cota
+        return True
+
+    def mostra(self):
+        self.mostrador._code.html = ":{}:".format(self.valor)
         return True
 
 
@@ -284,15 +296,16 @@ class Mesa(object):
         if not carta_corrente:
             return False
         jogadores_saindo = []
-        perigou = carta_corrente.divide(jogadores_saindo, self.salas)
         self.apresenta(carta_corrente)
-
+        ativos = len(self.jogadores_ativos)
         for jogador in self.jogadores_ativos:
             for carta in self.salas:
-                carta.premia(jogador, len(self.jogadores_ativos))
+                carta.premia(jogador, ativos)
             if jogador.joga() == DESISTE:
                 self.jogadores_ativos.remove(jogador)
                 jogadores_saindo.append(jogador)
+        carta_corrente.atualiza_saldo(ativos)
+        perigou = carta_corrente.divide(jogadores_saindo, self.salas)
         if not (self.jogadores_ativos and perigou):
             timer.clear_interval(self.interval)
             if self.rodada_corrente < 5:
