@@ -77,7 +77,7 @@ class Sprite(Elemento):
                                          width=w, height="{}px".format(h), overflow="hidden"))
         self.img.style.marginLeft = "-{}px".format(index * w)
         self.img.style.width = self.img.style.maxWidth = "{}px".format(delta)
-        self.nome = tit
+        self.nome = "n{}".format(tit)
         "210px"
         self.w = w
 
