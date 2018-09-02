@@ -119,7 +119,7 @@ class Carta(object):
     def mostra(self):
         return True
         
-    def atualiza_saldo(self, divider)
+    def atualiza_saldo(self, divider):
         self.valor %= divider
         self.mostra()
 
@@ -135,7 +135,7 @@ class Carta(object):
         cena.elt <= self.elt.elt
 
     def __eq__(self, carta):
-        print("carta.face == self.face", carta.face == self.face, carta.face, self.face)
+        # print("carta.face == self.face", carta.face == self.face, carta.face, self.face)
         return carta.face == self.face
 
 
