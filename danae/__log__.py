@@ -751,3 +751,10 @@ TypeError: '<=' not supported between instances of 'Sprite' and 'Codigo'
                                                             ^
 SyntaxError: trailing comma not allowed without surrounding parentheses
 '''},
+{'date': 'Sat Sep 01 2018 21:01:07.312 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 214
+  self.mostrador.._code.html = "{}:{}".format(self.tesouro, self.joias)
+                  ^
+SyntaxError: invalid syntax
+'''},
