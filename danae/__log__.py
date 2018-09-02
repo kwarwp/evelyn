@@ -758,3 +758,7 @@ SyntaxError: trailing comma not allowed without surrounding parentheses
                   ^
 SyntaxError: invalid syntax
 '''},
+{'date': 'Sat Sep 01 2018 21:03:31.758 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''
+Exception: <TypeError: r.substring is not a function>
+'''},
