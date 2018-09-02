@@ -148,7 +148,6 @@ class Tesouro(Carta):
     def __init__(self, face):
         super().__init__(face)
         self.mostra = Codigo(self.valor, cena=self.elt)
-        self.mostra.vai()
 
     def premia(self, jogador, cota):
         jogador.recebe(self.valor // cota)
