@@ -124,11 +124,16 @@ class Carta(object):
         self.mostra()
 
     def divide(self, jogadores, salas):
+        for sala in salas:
+            self.divide_valor(jogadores, sala)
+
+    def divide_valor(self, jogadores, sala):
         divider = len(jogadores)
         if divider == 0:
             return True
         for jogador in jogadores:
-            jogador.recebe(self.valor // divider)
+            jogador.recebe(sala.valor // divider)
+        sala.valor %= divider
         return True
 
     def entra(self, cena):
@@ -146,9 +151,24 @@ class Perigo(Carta):
 
 
 class Artefato(Carta):
-    def divide(self, jogadores, salas):
+
+    def __init__(self, face):
+        super().__init__(face)
+        self.valor = 10 # // Carta.VALOR
+        self.mostrador = Codigo(":{}:".format(self.valor), cena=self.elt)
+
+    def atualiza_saldo(self, divider):
+        pass
+        
+    def divide_valor(self, jogadores, salas):
         if len(jogadores) == 1:
-            jogadores[0].recebe(10 // self.VALOR)
+            jogadores[0].recebe(self.valor)
+            self.valor = 0
+            self.mostra()
+        return True
+
+    def mostra(self):
+        self.mostrador._code.html = ":{}:".format(self.valor)
         return True
 
 
@@ -221,6 +241,7 @@ class Jogador(object):
         desiste = self.chance.pop() < 2 if self.chance else True
         if desiste:
             self.tesouro += self.joias
+            self.joias = 0
             self.mostrador._code.html = "{}:{}".format(self.tesouro, self.joias)
             self.sprite.face(0)
         return desiste
@@ -294,6 +315,7 @@ class Mesa(object):
     def turno(self):
         carta_corrente = self.baralho.descarta()
         if (not carta_corrente) or (carta_corrente in self.salas):
+            carta_corrente.entra(self.labirinto)
             timer.clear_interval(self.interval)
             if self.rodada_corrente < 5:
                 timer.set_timeout(self.rodada, 2000)
