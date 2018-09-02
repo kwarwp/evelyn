@@ -25,9 +25,9 @@ from random import shuffle
 
 from browser import timer
 
-# from vitollino.main import Elemento, Cena, Codigo, Texto , STYLE
+#from vitollino.main import Elemento, Cena, Codigo, STYLE
 
-from _spy.vitollino.main import Elemento, Cena, Codigo, Texto, STYLE
+from _spy.vitollino.main import Elemento, Cena, Codigo, STYLE
 
 STYLE["width"] = 800
 
@@ -86,6 +86,14 @@ class Sprite(Elemento):
 
     def face(self, index):
         self.img.style.marginLeft = "-{}px".format(index * self.w)
+
+
+class Mostrador(Codigo):
+    def __init__(self, display, cena):
+        super().__init__(display, cena=cena)
+
+    def mostra(self, valor):
+        self._code.html = valor
 
 
 class Cenario(Cena):
@@ -154,12 +162,12 @@ class Artefato(Carta):
 
     def __init__(self, face):
         super().__init__(face)
-        self.valor = 10 # // Carta.VALOR
-        self.mostrador = Codigo(":{}:".format(self.valor), cena=self.elt)
+        self.valor = 10  # // Carta.VALOR
+        self.mostrador = Mostrador(":{}:".format(self.valor), cena=self.elt)
 
     def atualiza_saldo(self, divider):
         pass
-        
+
     def divide_valor(self, jogadores, salas):
         if len(jogadores) == 1:
             jogadores[0].recebe(self.valor)
@@ -168,7 +176,7 @@ class Artefato(Carta):
         return True
 
     def mostra(self):
-        self.mostrador._code.html = ":{}:".format(self.valor)
+        self.mostrador.mostra(":{}:".format(self.valor))
         return True
 
 
@@ -176,7 +184,7 @@ class Tesouro(Carta):
 
     def __init__(self, face):
         super().__init__(face)
-        self.mostrador = Codigo(":{}:".format(self.valor), cena=self.elt)
+        self.mostrador = Mostrador(":{}:".format(self.valor), cena=self.elt)
 
     def premia(self, jogador, cota):
         jogador.recebe(self.valor // cota)
@@ -184,7 +192,7 @@ class Tesouro(Carta):
         return True
 
     def mostra(self):
-        self.mostrador._code.html = ":{}:".format(self.valor)
+        self.mostrador.mostra(":{}:".format(self.valor))
         return True
 
 
@@ -215,7 +223,7 @@ class Jogador(object):
     def __init__(self, jogador, mesa):
         self.sprite = Sprite(IMGS["CARTASENTRAESAI"], 1, tit=jogador)
         self.cena = mesa.acampamento
-        self.mostrador = Codigo("0:0", cena=self.sprite)
+        self.mostrador = Mostrador("0:0", cena=self.sprite)
         self.tesouro = 0
         self.entra(self.cena)
         self.jogador = "from {mod}.main import {mod}, self.jogada = {mod}".format(mod=jogador)
@@ -228,21 +236,21 @@ class Jogador(object):
     def entra(self, cena=None):
         # self.chance = list(range(12))
         self.joias = 0
-        self.mostrador._code.html = "{}:{}".format(self.tesouro, self.joias)
+        self.mostrador.mostra("{}:{}".format(self.tesouro, self.joias))
         self.sprite.face(1)
         cena = cena if cena else self.cena
         cena.elt <= self.sprite.elt
 
     def recebe(self, joias):
         self.joias += joias
-        self.mostrador._code.html = "{}:{}".format(self.tesouro, self.joias)
+        self.mostrador.mostra("{}:{}".format(self.tesouro, self.joias))
 
     def joga(self):
         desiste = self.chance.pop() < 2 if self.chance else True
         if desiste:
             self.tesouro += self.joias
             self.joias = 0
-            self.mostrador._code.html = "{}:{}".format(self.tesouro, self.joias)
+            self.mostrador.mostra("{}:{}".format(self.tesouro, self.joias))
             self.sprite.face(0)
         return desiste
 
@@ -330,8 +338,8 @@ class Mesa(object):
                 self.jogadores_ativos.remove(jogador)
                 jogadores_saindo.append(jogador)
         carta_corrente.atualiza_saldo(ativos)
-        perigou = carta_corrente.divide(jogadores_saindo, self.salas)
-        if not (self.jogadores_ativos):
+        carta_corrente.divide(jogadores_saindo, self.salas)
+        if not self.jogadores_ativos:
             timer.clear_interval(self.interval)
             if self.rodada_corrente < 5:
                 timer.set_timeout(self.rodada, 2000)
