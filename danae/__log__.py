@@ -762,3 +762,7 @@ SyntaxError: invalid syntax
 'error': '''
 Exception: <TypeError: r.substring is not a function>
 '''},
+{'date': 'Sat Sep 01 2018 21:06:08.98 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''
+Exception: <TypeError: r.substring is not a function>
+'''},
