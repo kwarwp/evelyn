@@ -25,8 +25,9 @@ from random import shuffle
 
 from browser import timer
 
-# from _spy.vitollino.main import Elemento, Cena, Codigo
-from _spy.vitollino.main import Elemento, Cena, Codigo, STYLE
+# from vitollino.main import Elemento, Cena, Codigo, Texto , STYLE
+
+from _spy.vitollino.main import Elemento, Cena, Codigo, Texto, STYLE
 
 STYLE["width"] = 800
 
@@ -143,9 +144,16 @@ class Artefato(Carta):
 
 
 class Tesouro(Carta):
+
+    def __init__(self, face):
+        super().__init__(face)
+        self.mostra = Codigo(self.valor, cena=self.elt)
+        self.mostra.vai()
+
     def premia(self, jogador, cota):
         jogador.recebe(self.valor // cota)
         self.valor %= cota
+        self.mostra._code.html = self.valor
         return True
 
 
@@ -176,7 +184,7 @@ class Jogador(object):
     def __init__(self, jogador, mesa):
         self.sprite = Sprite(IMGS["CARTASENTRAESAI"], 1, tit=jogador)
         self.cena = mesa.acampamento
-        self.mostrador = Codigo("0", "0", self.sprite)
+        self.mostrador = Codigo("0:0", cena=self.sprite)
         self.tesouro = 0
         self.entra(self.cena)
         self.jogador = "from {mod}.main import {mod}, self.jogada = {mod}".format(mod=jogador)
@@ -189,17 +197,20 @@ class Jogador(object):
     def entra(self, cena=None):
         # self.chance = list(range(12))
         self.joias = 0
+        self.mostrador._code.html = self.joias
         self.sprite.face(1)
         cena = cena if cena else self.cena
         cena.elt <= self.sprite.elt
 
     def recebe(self, joias):
         self.joias += joias
+        self.mostrador._code.html = "{}:{}".format(self.tesouro, self.joias)
 
     def joga(self):
         desiste = self.chance.pop() < 2 if self.chance else True
         if desiste:
             self.tesouro += self.joias
+            self.mostrador._code.html = "{}:{}".format(self.tesouro, self.joias)
             self.sprite.face(0)
         return desiste
 
