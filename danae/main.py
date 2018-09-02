@@ -295,7 +295,15 @@ class Mesa(object):
         carta_corrente = self.baralho.descarta()
         if not carta_corrente:
             return False
+        '''
+        if (not carta_corrente) or (carta_corrente in self.salas):
+            timer.clear_interval(self.interval)
+            if self.rodada_corrente < 5:
+                timer.set_timeout(self.rodada, 2000)
+            return False
+        '''
         jogadores_saindo = []
+        perigou
         self.apresenta(carta_corrente)
         ativos = len(self.jogadores_ativos)
         for jogador in self.jogadores_ativos:
