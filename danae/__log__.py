@@ -770,3 +770,10 @@ Exception: <TypeError: r.substring is not a function>
 'error': '''
 Exception: <TypeError: r.substring is not a function>
 '''},
+{'date': 'Sat Sep 01 2018 23:32:09.985 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 128
+  self.divide_valor(, jogadores, sala)
+                     ^
+SyntaxError: invalid syntax
+'''},
