@@ -766,3 +766,7 @@ Exception: <TypeError: r.substring is not a function>
 'error': '''
 Exception: <TypeError: r.substring is not a function>
 '''},
+{'date': 'Sat Sep 01 2018 21:08:14.480 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''
+Exception: <TypeError: r.substring is not a function>
+'''},
