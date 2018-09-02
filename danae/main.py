@@ -118,7 +118,7 @@ class Carta(object):
 
     def mostra(self):
         return True
-        
+
     def atualiza_saldo(self, divider):
         self.valor %= divider
         self.mostra()
@@ -160,7 +160,7 @@ class Tesouro(Carta):
 
     def premia(self, jogador, cota):
         jogador.recebe(self.valor // cota)
-        #self.valor %= cota
+        # self.valor %= cota
         return True
 
     def mostra(self):
@@ -293,17 +293,12 @@ class Mesa(object):
 
     def turno(self):
         carta_corrente = self.baralho.descarta()
-        if not carta_corrente:
-            return False
-        '''
         if (not carta_corrente) or (carta_corrente in self.salas):
             timer.clear_interval(self.interval)
             if self.rodada_corrente < 5:
                 timer.set_timeout(self.rodada, 2000)
             return False
-        '''
         jogadores_saindo = []
-        perigou
         self.apresenta(carta_corrente)
         ativos = len(self.jogadores_ativos)
         for jogador in self.jogadores_ativos:
@@ -314,7 +309,7 @@ class Mesa(object):
                 jogadores_saindo.append(jogador)
         carta_corrente.atualiza_saldo(ativos)
         perigou = carta_corrente.divide(jogadores_saindo, self.salas)
-        if not (self.jogadores_ativos and perigou):
+        if not (self.jogadores_ativos):
             timer.clear_interval(self.interval)
             if self.rodada_corrente < 5:
                 timer.set_timeout(self.rodada, 2000)
