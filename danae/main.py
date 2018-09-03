@@ -25,7 +25,7 @@ from random import shuffle
 
 from browser import timer
 
-#from vitollino.main import Elemento, Cena, Codigo, STYLE
+# from vitollino.main import Elemento, Cena, Codigo, STYLE
 
 from _spy.vitollino.main import Elemento, Cena, Codigo, STYLE
 
@@ -63,12 +63,15 @@ SPRITES = dict(
     desabe=(IMGS["MOSTROS"], 0), aranha=(IMGS["MOSTROS"], 1), cobra=(IMGS["MOSTROS"], 2),
     fogo=(IMGS["MOSTROS1"], 0), mumia=(IMGS["MOSTROS1"], 1),
     estatua=(IMGS["ARTEFATOS1"], 0), vaso=(IMGS["ARTEFATOS1"], 1), broche=(IMGS["ARTEFATOS1"], 2),
-    colar=(IMGS["ARTEFATOS2"], 0), adorno=(IMGS["ARTEFATOS2"], 1),
+    colar=(IMGS["ARTEFATOS2"], 0), adorno=(IMGS["ARTEFATOS2"], 1), decide=(IMGS["CARTASENTRAESAI"], 1),
     t1=(IMGS["PEDRAS1"], 0), t2=(IMGS["PEDRAS1"], 1), t4=(IMGS["PEDRAS1"], 2), t5=(IMGS["PEDRAS2"], 0),
     t7=(IMGS["PEDRAS2"], 1), t3=(IMGS["PEDRAS2"], 2), t9=(IMGS["PEDRAS3"], 0), t11=(IMGS["PEDRAS3"], 1),
     t13=(IMGS["PEDRAS3"], 2), t14=(IMGS["PEDRAS4"], 0), t15=(IMGS["PEDRAS4"], 1), t17=(IMGS["PEDRAS4"], 2),
 )
 SPRITES = {key: dict(img=img, index=ind, tit=key) for key, (img, ind) in SPRITES.items()}
+FASES = dict(f1=(IMGS["TEMPLOTRAS1"], 1), f2=(IMGS["TEMPLOTRAS1"], 0),
+             f3=(IMGS["TEMPLOTRAS2"], 1), f4=(IMGS["TEMPLOTRAS2"], 0),
+             f5=(IMGS["TEMPLOTRAS3"], 0, 800))
 
 
 class Sprite(Elemento):
@@ -112,6 +115,27 @@ class Cenario(Cena):
         self.img.style.marginLeft = "-{}px".format(index * self.w)
 
 
+class Gui:
+    def __init__(self):
+        self.parte = []
+        self.carta = []
+
+    def cena(self, imagem):
+        self.parte[imagem] = cena = Cenario(**FASES[imagem])
+        cena.vai()
+        return cena
+
+    def carta(self, imagem, tit=""):
+        sprite = SPRITES[imagem if imagem.isalpha() else "t{}".format(imagem)]
+        if tit:
+            sprite.update(tit=tit)
+        self.carta[imagem] = carta = Sprite(**sprite)
+        return carta
+
+
+GUI = Gui()
+
+
 class Carta(object):
     PERIGO = []
     VALOR = 2
@@ -119,10 +143,14 @@ class Carta(object):
     def __init__(self, face):
         self.face = face
         self.valor = int(face) if face.isdigit() else 0
-        self.elt = Sprite(**SPRITES[face if face.isalpha() else "t{}".format(face)])
+        # self.elt = Sprite(**SPRITES[face if face.isalpha() else "t{}".format(face)])
+        self.elt = GUI.carta(face)
 
     def premia(self, jogadores, _):
         return True
+
+    def inicia(self):
+        self.valor = int(self.face) if self.face.isdigit() else 0
 
     def mostra(self):
         return True
@@ -203,6 +231,7 @@ class Baralho(object):
 
     def embaralha(self, artefato):
         self.cartas.append(Artefato(face=artefato))
+        [carta.inicia() for carta in self.cartas]
         shuffle(self.cartas)
 
     def descarta(self):
