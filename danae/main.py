@@ -94,10 +94,10 @@ class Sprite(Elemento):
         self._mostra = self._so_mostra
 
     def _so_mostra(self, valor):
-        self._mostra(valor)
+        self._mostrador.mostra(valor)
 
     def mostra(self, valor):
-        self._mostrador.mostra(valor)
+        self._mostra(valor)
 
     def face(self, index):
         self.img.style.marginLeft = "-{}px".format(index * self.w)
