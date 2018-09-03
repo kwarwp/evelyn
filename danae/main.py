@@ -117,11 +117,11 @@ class Cenario(Cena):
 
 class Gui:
     def __init__(self):
-        self.parte = []
-        self.carta = []
+        self._parte = []
+        self._carta = []
 
     def cena(self, imagem):
-        self.parte[imagem] = cena = Cenario(**FASES[imagem])
+        self._parte[imagem] = cena = Cenario(**FASES[imagem])
         cena.vai()
         return cena
 
@@ -129,7 +129,7 @@ class Gui:
         sprite = SPRITES[imagem if imagem.isalpha() else "t{}".format(imagem)]
         if tit:
             sprite.update(tit=tit)
-        self.carta[imagem] = carta = Sprite(**sprite)
+        self._carta[imagem] = carta = Sprite(**sprite)
         return carta
 
 
