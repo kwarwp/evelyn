@@ -250,7 +250,7 @@ class Baralho(object):
 
 class Jogador(object):
     def __init__(self, jogador, mesa):
-        self.sprite = Sprite(IMGS["CARTASENTRAESAI"], 1, tit=jogador)
+        self.sprite = GUI.carta('decide', tit=jogador)
         self.cena = mesa.acampamento
         self.mostrador = Mostrador("0:0", cena=self.sprite)
         self.tesouro = 0
@@ -268,7 +268,8 @@ class Jogador(object):
         self.mostrador.mostra("{}:{}".format(self.tesouro, self.joias))
         self.sprite.face(1)
         cena = cena if cena else self.cena
-        cena.elt <= self.sprite.elt
+        #cena.elt <= self.sprite.elt
+        self.sprite.entra(cena)
 
     def recebe(self, joias):
         self.joias += joias
