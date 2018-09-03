@@ -25,7 +25,7 @@ from random import shuffle
 
 from browser import timer
 
-# from vitollino.main import Elemento, Cena, Codigo, STYLE
+#from vitollino.main import Elemento, Cena, Codigo, STYLE
 
 from _spy.vitollino.main import Elemento, Cena, Codigo, STYLE
 
@@ -83,9 +83,21 @@ class Sprite(Elemento):
         self.nome = "n{}".format(tit)
         "210px"
         self.w = w
+        self._mostrador = None
+        self._mostra = self._cria_mostra
 
     def __le__(self, item):
         self.elt <= item.elt
+
+    def _cria_mostra(self, valor):
+        self._mostrador = Mostrador(valor, self)
+        self._mostra = self._so_mostra
+
+    def _so_mostra(self, valor):
+        self._mostra(valor)
+
+    def mostra(self, valor):
+        self._mostrador.mostra(valor)
 
     def face(self, index):
         self.img.style.marginLeft = "-{}px".format(index * self.w)
@@ -143,7 +155,6 @@ class Carta(object):
     def __init__(self, face):
         self.face = face
         self.valor = int(face) if face.isdigit() else 0
-        # self.elt = Sprite(**SPRITES[face if face.isalpha() else "t{}".format(face)])
         self.elt = GUI.carta(face)
 
     def premia(self, jogadores, _):
@@ -191,7 +202,7 @@ class Artefato(Carta):
     def __init__(self, face):
         super().__init__(face)
         self.valor = 10  # // Carta.VALOR
-        self.mostrador = Mostrador(":{}:".format(self.valor), cena=self.elt)
+        self.elt.mostra(":{}:".format(self.valor))
 
     def atualiza_saldo(self, divider):
         pass
@@ -204,7 +215,7 @@ class Artefato(Carta):
         return True
 
     def mostra(self):
-        self.mostrador.mostra(":{}:".format(self.valor))
+        self.elt.mostra(":{}:".format(self.valor))
         return True
 
 
@@ -212,7 +223,7 @@ class Tesouro(Carta):
 
     def __init__(self, face):
         super().__init__(face)
-        self.mostrador = Mostrador(":{}:".format(self.valor), cena=self.elt)
+        self.elt.mostra(":{}:".format(self.valor))
 
     def premia(self, jogador, cota):
         jogador.recebe(self.valor // cota)
@@ -220,7 +231,7 @@ class Tesouro(Carta):
         return True
 
     def mostra(self):
-        self.mostrador.mostra(":{}:".format(self.valor))
+        self.elt.mostra(":{}:".format(self.valor))
         return True
 
 
@@ -252,7 +263,7 @@ class Jogador(object):
     def __init__(self, jogador, mesa):
         self.sprite = GUI.carta('decide', tit=jogador)
         self.cena = mesa.acampamento
-        self.mostrador = Mostrador("0:0", cena=self.sprite)
+        self.sprite.mostra("0:0")
         self.tesouro = 0
         self.entra(self.cena)
         self.jogador = "from {mod}.main import {mod}, self.jogada = {mod}".format(mod=jogador)
@@ -265,22 +276,21 @@ class Jogador(object):
     def entra(self, cena=None):
         # self.chance = list(range(12))
         self.joias = 0
-        self.mostrador.mostra("{}:{}".format(self.tesouro, self.joias))
+        self.sprite.mostra("{}:{}".format(self.tesouro, self.joias))
         self.sprite.face(1)
         cena = cena if cena else self.cena
-        #cena.elt <= self.sprite.elt
         self.sprite.entra(cena)
 
     def recebe(self, joias):
         self.joias += joias
-        self.mostrador.mostra("{}:{}".format(self.tesouro, self.joias))
+        self.sprite.mostra("{}:{}".format(self.tesouro, self.joias))
 
     def joga(self):
         desiste = self.chance.pop() < 2 if self.chance else True
         if desiste:
             self.tesouro += self.joias
             self.joias = 0
-            self.mostrador.mostra("{}:{}".format(self.tesouro, self.joias))
+            self.sprite.mostra("{}:{}".format(self.tesouro, self.joias))
             self.sprite.face(0)
         return desiste
 
