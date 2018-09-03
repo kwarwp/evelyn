@@ -849,3 +849,31 @@ SyntaxError: invalid syntax
     self.elt = GUI.carta(face)
 TypeError: 'list' object is not callable
 '''},
+{'date': 'Mon Sep 03 2018 18:06:11.774 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''Traceback (most recent call last):
+  module _core.main line 160
+    dialog.action(lambda *_: self.start()
+  module _core.supygirls_factory line 135
+    self.act(self, lambda *_: self.hide() or extra()) if self.act else None
+  module _core.supygirls_factory line 306
+    return self._first_response(lambda: self._executa_acao(), self.extra, self.error)
+  module _core.supygirls_factory line 278
+    traceback.print_exc(file=sys.stderr)
+  module _core.supygirls_factory line 295
+    exec(self.code, glob)  # dict(__name__="__main__"))
+  module <module> line 386
+    Jogo().inicia()
+  module <module> line 379
+    self.mesa = Mesa(jogadores)
+  module <module> line 303
+    self.baralho = Baralho()
+  module <module> line 230
+    self.monta_baralho()
+  module <module> line 243
+    self.cartas.append(Perigo(face=perigo))
+  module <module> line 147
+    self.elt = GUI.carta(face)
+  module <module> line 132
+    self._carta[imagem] = carta = Sprite(**sprite)
+IndexError: list assignment index out of range
+'''},
