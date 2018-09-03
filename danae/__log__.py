@@ -793,3 +793,10 @@ SyntaxError: invalid syntax
     STYLE["width"] = 800
 AttributeError: 'module' object has no attribute '__setitem__'
 '''},
+{'date': 'Mon Sep 03 2018 17:51:17.50 GMt-0300 (-03) -X- SuPyGirls -X-',
+'error': '''
+ module <string> line 129
+  self.carta[imagem] = carta = Sprite(**SPRITES[imagem if imagem.isalpha() else "t{}".format(imagem)], tit=tit)
+                                                                                                        ^
+SyntaxError: invalid syntax
+'''},
