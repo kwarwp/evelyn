@@ -117,8 +117,8 @@ class Cenario(Cena):
 
 class Gui:
     def __init__(self):
-        self._parte = []
-        self._carta = []
+        self._parte = {}
+        self._carta = {}
 
     def cena(self, imagem):
         self._parte[imagem] = cena = Cenario(**FASES[imagem])
