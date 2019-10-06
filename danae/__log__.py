@@ -905,3 +905,33 @@ IndexError: list assignment index out of range
     self._mostrador.mostra(valor)
 AttributeError: 'NoneType' object has no attribute 'mostra'
 '''},
+{'date': 'Sun Oct 06 2019 13:47:07.515 GMt-0300 (Horário Padrão de Brasília) -X- SuPyGirls -X-',
+'error': '''Traceback (most recent call last):
+  module _core.main line 160
+    dialog.action(lambda *_: self.start()
+  module _core.supygirls_factory line 135
+    self.act(self, lambda *_: self.hide() or extra()) if self.act else None
+  module _core.supygirls_factory line 306
+    return self._first_response(lambda: self._executa_acao(), self.extra, self.error)
+  module _core.supygirls_factory line 278
+    traceback.print_exc(file=sys.stderr)
+  module _core.supygirls_factory line 295
+    exec(self.code, glob)  # dict(__name__="__main__"))
+  module <module> line 397
+    Jogo().inicia()
+  module <module> line 390
+    self.mesa = Mesa(jogadores)
+  module <module> line 314
+    self.baralho = Baralho()
+  module <module> line 241
+    self.monta_baralho()
+  module <module> line 254
+    self.cartas.append(Perigo(face=perigo))
+  module <module> line 158
+    self.elt = GUI.carta(face)
+  module <module> line 144
+    self._carta[imagem] = carta = Sprite(**sprite)
+  module <module> line 81
+    self.img.style.marginLeft = "-{}px".format(index * w)
+AttributeError: 'str' object has no attribute 'style'
+'''},
